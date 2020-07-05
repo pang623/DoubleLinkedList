@@ -1,0 +1,38 @@
+---
+:source:
+  :path: test
+  :file: test_DoubleLinkedList.c
+:successes:
+- :test: test_doubleLinkedListAddItemToHead_given_item2_expect_head_points_item2_and_tail_points_item1_and_both_item1next_and_item2prev_points_to_null
+  :line: 13
+  :message: ''
+  :unity_test_time: 0
+- :test: test_doubleLinkedListAddItemToTail_given_item2_expect_tail_points_item2_and_head_points_item1_and_both_item2next_and_item1prev_points_to_null
+  :line: 33
+  :message: ''
+  :unity_test_time: 0
+- :test: test_doubleLinkedListRemoveItemFromHead_given_list_expect_lastItem_to_be_removed_from_head_of_linked_list_every_time_the_function_is_executed_item_removed_in_order_of_321
+  :line: 53
+  :message: ''
+  :unity_test_time: 0
+- :test: test_doubleLinkedListRemoveItemFromHead_given_list_expect_lastItem_to_be_removed_from_head_of_linked_list_every_time_the_function_is_executed_item_removed_in_order_of_123
+  :line: 109
+  :message: ''
+  :unity_test_time: 0
+- :test: test_doubleLinkedListRemoveItemFromTail_given_list_expect_lastItem_to_be_removed_from_tail_of_linked_list_every_time_the_function_is_executed_item_removed_in_order_of_321
+  :line: 165
+  :message: ''
+  :unity_test_time: 0
+- :test: test_doubleLinkedListRemoveItemFromTail_given_list_expect_lastItem_to_be_removed_from_tail_of_linked_list_every_time_the_function_is_executed_item_removed_in_order_of_123
+  :line: 223
+  :message: ''
+  :unity_test_time: 0
+:failures: []
+:ignores: []
+:counts:
+  :total: 6
+  :passed: 6
+  :failed: 0
+  :ignored: 0
+:stdout: []
+:time: 0.024452300000120886
