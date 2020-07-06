@@ -14,8 +14,7 @@ void test_doubleLinkedListAddItemToHead_given_item2_expect_head_points_item2_and
 	//initialise items and list
 	ListItem item1 = {NULL, NULL, 10};
 	ListItem item2 = {NULL, NULL, 20};
-	DoubleLinkedList list = {&item1, &item1, 1};		//item1 had been added to linked list
-
+	DoubleLinkedList list = {&item1, &item1, 1};		//item1 had been added to linked list, this way of adding item can only be done when the list does not has any item
 	//add item 2 to head
 	int c = doubleLinkedListAddItemToHead(&list, &item2);
 	//test the linked list
@@ -35,7 +34,6 @@ void test_doubleLinkedListAddItemToTail_given_item2_expect_tail_points_item2_and
 	ListItem item1 = {NULL, NULL, 10};
 	ListItem item2 = {NULL, NULL, 20};
 	DoubleLinkedList list = {&item1, &item1, 1};		//item1 had been added to linked list
-
 	//add item 2 to tail
 	int c = doubleLinkedListAddItemToTail(&list, &item2);
 	//test the linked list
