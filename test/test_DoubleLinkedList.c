@@ -36,7 +36,7 @@ void test_doubleLinkedListAddItemToHead_given_item2_expect_head_points_item2_and
 	//initialise items and list
 	ListItem item1 = {NULL, NULL, 10};
 	ListItem item2 = {NULL, NULL, 20};
-	DoubleLinkedList list = {&item1, &item1, 1};		          //item1 had been added to linked list, this way of adding item can only be done when the list does not has any item
+	DoubleLinkedList list = {&item1, &item1, 1};              //item1 had been added to linked list, this way of adding item can only be done when the list does not has any item
 	//add item 2 to head
 	int c = doubleLinkedListAddItemToHead(&list, &item2);
 	//test the linked list
@@ -46,7 +46,7 @@ void test_doubleLinkedListAddItemToHead_given_item2_expect_head_points_item2_and
 	TEST_ASSERT_EQUAL_PTR(&item2, item1.prev);
 	TEST_ASSERT_EQUAL_PTR(NULL, item2.prev);
 	TEST_ASSERT_EQUAL_PTR(NULL, item1.next);
-	TEST_ASSERT_EQUAL(2, c);							                    //check that the count has incremented by one after adding 1 item
+	TEST_ASSERT_EQUAL(2, c);                                  //check that the count has incremented by one after adding 1 item
 	TEST_ASSERT_EQUAL(10, item1.data);
 	TEST_ASSERT_EQUAL(20, item2.data);
 }
@@ -79,7 +79,7 @@ void test_doubleLinkedListAddItemToTail_given_item2_expect_tail_points_item2_and
 	//initialise items and list
 	ListItem item1 = {NULL, NULL, 10};
 	ListItem item2 = {NULL, NULL, 20};
-	DoubleLinkedList list = {&item1, &item1, 1};		          //item1 had been added to linked list
+	DoubleLinkedList list = {&item1, &item1, 1};              //item1 had been added to linked list
 	//add item 2 to tail
 	int c = doubleLinkedListAddItemToTail(&list, &item2);
 	//test the linked list
@@ -89,7 +89,7 @@ void test_doubleLinkedListAddItemToTail_given_item2_expect_tail_points_item2_and
 	TEST_ASSERT_EQUAL_PTR(&item1, item2.prev);
 	TEST_ASSERT_EQUAL_PTR(NULL, item1.prev);
 	TEST_ASSERT_EQUAL_PTR(NULL, item2.next);
-	TEST_ASSERT_EQUAL(2, c);							                    //check that the count has incremented by one after adding 1 item
+	TEST_ASSERT_EQUAL(2, c);                                  //check that the count has incremented by one after adding 1 item
 	TEST_ASSERT_EQUAL(10, item1.data);
 	TEST_ASSERT_EQUAL(20, item2.data);
 }
