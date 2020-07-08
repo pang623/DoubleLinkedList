@@ -369,7 +369,7 @@ void test_doubleLinkedListRemoveItemFromTail_given_list_which_contains_item1_exp
 void test_doubleLinkedListRemoveItemFromTail_given_list_which_contains_item1_and_item2_expect_function_return_itemRemoved_as_item2_and_head_and_tail_of_list_points_to_item1() {
   ListItem* itemRemoved;
   ListItem item1 = {NULL, NULL, 10};
-	ListItem item2 = {NULL, NULL, 20};
+  ListItem item2 = {NULL, NULL, 20};
   item1.next = &item2;
   item2.prev = &item1;
   DoubleLinkedList list = {&item1, &item2, 2};                    //list contains item1 and item2
@@ -415,7 +415,7 @@ void test_doubleLinkedListRemoveItemFromTail_given_list_which_contains_item1_and
 void test_doubleLinkedListRemoveItemFromTail_given_list_which_contains_item1_item2_and_item3_expect_function_return_itemRemoved_as_item3_and_head_points_to_item1_tail_points_to_item2() {
   ListItem* itemRemoved;
   ListItem item1 = {NULL, NULL, 10};
-	ListItem item2 = {NULL, NULL, 20};
+  ListItem item2 = {NULL, NULL, 20};
   ListItem item3 = {NULL, NULL, 30};
   item1.next = &item2;
   item2.prev = &item1;
