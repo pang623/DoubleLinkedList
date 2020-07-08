@@ -198,7 +198,7 @@ void test_doubleLinkedListRemoveItemFromHead_given_list_which_contains_item1_exp
 void test_doubleLinkedListRemoveItemFromHead_given_list_which_contains_item1_and_item2_expect_function_return_itemRemoved_as_item2_and_head_and_tail_of_list_points_to_item1() {
   ListItem* itemRemoved;
   ListItem item1 = {NULL, NULL, 10};
-	ListItem item2 = {NULL, NULL, 20};
+  ListItem item2 = {NULL, NULL, 20};
   item1.prev = &item2;
   item2.next = &item1;
   DoubleLinkedList list = {&item2, &item1, 2};                    //list contains item1 and item2
@@ -207,9 +207,9 @@ void test_doubleLinkedListRemoveItemFromHead_given_list_which_contains_item1_and
   //test linked list
 	TEST_ASSERT_EQUAL_PTR(&item2, itemRemoved);               //check that the item removed is item 2
 	TEST_ASSERT_EQUAL_PTR(&item1, list.head);
-  TEST_ASSERT_EQUAL_PTR(&item1, list.tail);
+	TEST_ASSERT_EQUAL_PTR(&item1, list.tail);
 	TEST_ASSERT_EQUAL_PTR(NULL, item1.prev);
-  TEST_ASSERT_EQUAL_PTR(NULL, item1.next);
+	TEST_ASSERT_EQUAL_PTR(NULL, item1.next);
 	TEST_ASSERT_EQUAL(1, list.count);                         //check that the count is reduced by 1 after removing 1 item
 	TEST_ASSERT_EQUAL_PTR(NULL, itemRemoved->next);           //check that the item2.next and item2.prev points to null
 	TEST_ASSERT_EQUAL_PTR(NULL, itemRemoved->prev);
@@ -245,7 +245,7 @@ void test_doubleLinkedListRemoveItemFromHead_given_list_which_contains_item1_and
 void test_doubleLinkedListRemoveItemFromHead_given_list_which_contains_item1_item2_and_item3_expect_function_return_itemRemoved_as_item3_and_head_points_to_item2_tail_points_to_item1() {
   ListItem* itemRemoved;
   ListItem item1 = {NULL, NULL, 10};
-	ListItem item2 = {NULL, NULL, 20};
+  ListItem item2 = {NULL, NULL, 20};
   ListItem item3 = {NULL, NULL, 30};
   item1.prev = &item2;
   item2.next = &item1;
@@ -257,9 +257,9 @@ void test_doubleLinkedListRemoveItemFromHead_given_list_which_contains_item1_ite
   //test linked list
 	TEST_ASSERT_EQUAL_PTR(&item3, itemRemoved);               //check that the item removed is item 3
 	TEST_ASSERT_EQUAL_PTR(&item2, list.head);
-  TEST_ASSERT_EQUAL_PTR(&item1, list.tail);
+	TEST_ASSERT_EQUAL_PTR(&item1, list.tail);
 	TEST_ASSERT_EQUAL_PTR(NULL, item2.prev);
-  TEST_ASSERT_EQUAL_PTR(NULL, item1.next);
+	TEST_ASSERT_EQUAL_PTR(NULL, item1.next);
 	TEST_ASSERT_EQUAL(2, list.count);                         //check that the count is reduced by 1 after removing 1 item
 	TEST_ASSERT_EQUAL_PTR(NULL, itemRemoved->next);           //check that the item3.next and item3.prev points to null
 	TEST_ASSERT_EQUAL_PTR(NULL, itemRemoved->prev);
