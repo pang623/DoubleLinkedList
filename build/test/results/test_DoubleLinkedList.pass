@@ -4,35 +4,51 @@
   :file: test_DoubleLinkedList.c
 :successes:
 - :test: test_doubleLinkedListAddItemToHead_given_item2_expect_head_points_item2_and_tail_points_item1_and_both_item1next_and_item2prev_points_to_null
-  :line: 13
+  :line: 35
   :message: ''
   :unity_test_time: 0
 - :test: test_doubleLinkedListAddItemToTail_given_item2_expect_tail_points_item2_and_head_points_item1_and_both_item2next_and_item1prev_points_to_null
-  :line: 32
+  :line: 78
   :message: ''
   :unity_test_time: 0
-- :test: test_doubleLinkedListRemoveItemFromHead_given_list_expect_lastItem_to_be_removed_from_head_of_linked_list_every_time_the_function_is_executed_item_removed_in_order_of_321
-  :line: 51
+- :test: test_doubleLinkedListRemoveItemFromHead_given_list_which_contains_no_item_expect_function_return_itemRemoved_as_NULL_and_head_and_tail_of_list_points_to_NULL
+  :line: 120
   :message: ''
   :unity_test_time: 0
-- :test: test_doubleLinkedListRemoveItemFromHead_given_list_expect_lastItem_to_be_removed_from_head_of_linked_list_every_time_the_function_is_executed_item_removed_in_order_of_123
-  :line: 107
+- :test: test_doubleLinkedListRemoveItemFromHead_given_list_which_contains_item1_expect_function_return_itemRemoved_as_item1_and_head_and_tail_of_list_points_to_NULL
+  :line: 156
   :message: ''
   :unity_test_time: 0
-- :test: test_doubleLinkedListRemoveItemFromTail_given_list_expect_lastItem_to_be_removed_from_tail_of_linked_list_every_time_the_function_is_executed_item_removed_in_order_of_321
-  :line: 163
+- :test: test_doubleLinkedListRemoveItemFromHead_given_list_which_contains_item1_and_item2_expect_function_return_itemRemoved_as_item2_and_head_and_tail_of_list_points_to_item1
+  :line: 198
   :message: ''
   :unity_test_time: 0
-- :test: test_doubleLinkedListRemoveItemFromTail_given_list_expect_lastItem_to_be_removed_from_tail_of_linked_list_every_time_the_function_is_executed_item_removed_in_order_of_123
-  :line: 221
+- :test: test_doubleLinkedListRemoveItemFromHead_given_list_which_contains_item1_item2_and_item3_expect_function_return_itemRemoved_as_item3_and_head_points_to_item2_tail_points_to_item1
+  :line: 245
+  :message: ''
+  :unity_test_time: 0
+- :test: test_doubleLinkedListRemoveItemFromTail_given_list_which_contains_no_item_expect_function_return_itemRemoved_as_NULL_and_head_and_tail_of_list_points_to_NULL
+  :line: 292
+  :message: ''
+  :unity_test_time: 0
+- :test: test_doubleLinkedListRemoveItemFromTail_given_list_which_contains_item1_expect_function_return_itemRemoved_as_item1_and_head_and_tail_of_list_points_to_NULL
+  :line: 328
+  :message: ''
+  :unity_test_time: 0
+- :test: test_doubleLinkedListRemoveItemFromTail_given_list_which_contains_item1_and_item2_expect_function_return_itemRemoved_as_item2_and_head_and_tail_of_list_points_to_item1
+  :line: 369
+  :message: ''
+  :unity_test_time: 0
+- :test: test_doubleLinkedListRemoveItemFromTail_given_list_which_contains_item1_item2_and_item3_expect_function_return_itemRemoved_as_item3_and_head_points_to_item1_tail_points_to_item2
+  :line: 415
   :message: ''
   :unity_test_time: 0
 :failures: []
 :ignores: []
 :counts:
-  :total: 6
-  :passed: 6
+  :total: 10
+  :passed: 10
   :failed: 0
   :ignored: 0
 :stdout: []
-:time: 0.07322590000694618
+:time: 0.039856499992311
