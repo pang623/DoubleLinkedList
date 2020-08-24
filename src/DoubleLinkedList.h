@@ -4,19 +4,19 @@
 typedef struct ListItem ListItem;
 typedef struct DoubleLinkedList DoubleLinkedList;
 struct ListItem{
-	ListItem *next;
-	ListItem *prev;
-	int data;
+  ListItem *next;
+  ListItem *prev;
+  int data;
 };
 
 struct DoubleLinkedList{
-	ListItem *head;
-	ListItem *tail;
-	int count;
+  ListItem *head;
+  ListItem *tail;
+  int count;
 };
 
 int doubleLinkedListAddItemToHead(DoubleLinkedList *list, ListItem *item);
-int doubleLinkedListAddItemToTail(DoubleLinkedList *listPtr, ListItem *itemPtr);
+int doubleLinkedListAddItemToTail(DoubleLinkedList *list, ListItem *item);
 ListItem* doubleLinkedListRemoveItemFromHead(DoubleLinkedList *ListPtr);
 ListItem* doubleLinkedListRemoveItemFromTail(DoubleLinkedList *ListPtr);
 

@@ -3,52 +3,84 @@
   :path: test
   :file: test_DoubleLinkedList.c
 :successes:
-- :test: test_doubleLinkedListAddItemToHead_given_item2_expect_head_points_item2_and_tail_points_item1_and_both_item1next_and_item2prev_points_to_null
-  :line: 35
+- :test: test_doubleLinkedListAddItemToHead_given_NULL_item_and_empty_list_expect_list_is_still_empty_after_adding
+  :line: 31
   :message: ''
   :unity_test_time: 0
-- :test: test_doubleLinkedListAddItemToTail_given_item2_expect_tail_points_item2_and_head_points_item1_and_both_item2next_and_item1prev_points_to_null
-  :line: 78
+- :test: test_doubleLinkedListAddItemToHead_given_item1_and_empty_list_expect_item1_added_to_list
+  :line: 63
   :message: ''
   :unity_test_time: 0
-- :test: test_doubleLinkedListRemoveItemFromHead_given_list_which_contains_no_item_expect_function_return_itemRemoved_as_NULL_and_head_and_tail_of_list_points_to_NULL
-  :line: 120
+- :test: test_doubleLinkedListAddItemToHead_given_NULL_item_and_list_containing_an_item_expect_no_item_is_added_and_list_remains_the_same
+  :line: 101
   :message: ''
   :unity_test_time: 0
-- :test: test_doubleLinkedListRemoveItemFromHead_given_list_which_contains_item1_expect_function_return_itemRemoved_as_item1_and_head_and_tail_of_list_points_to_NULL
-  :line: 156
+- :test: test_doubleLinkedListAddItemToHead_given_item2_and_list_containing_item1_expect_item2_added_to_head_of_list
+  :line: 139
   :message: ''
   :unity_test_time: 0
-- :test: test_doubleLinkedListRemoveItemFromHead_given_list_which_contains_item1_and_item2_expect_function_return_itemRemoved_as_item2_and_head_and_tail_of_list_points_to_item1
-  :line: 198
+- :test: test_doubleLinkedListAddItemToHead_given_item3_and_list_containing_item1_and_item2_expect_item3_added_to_head_of_list
+  :line: 180
   :message: ''
   :unity_test_time: 0
-- :test: test_doubleLinkedListRemoveItemFromHead_given_list_which_contains_item1_item2_and_item3_expect_function_return_itemRemoved_as_item3_and_head_points_to_item2_tail_points_to_item1
-  :line: 245
+- :test: test_doubleLinkedListAddItemToTail_given_NULL_item_and_empty_list_expect_list_is_still_empty_after_adding
+  :line: 226
   :message: ''
   :unity_test_time: 0
-- :test: test_doubleLinkedListRemoveItemFromTail_given_list_which_contains_no_item_expect_function_return_itemRemoved_as_NULL_and_head_and_tail_of_list_points_to_NULL
-  :line: 292
+- :test: test_doubleLinkedListAddItemToTail_given_item1_and_empty_list_expect_item1_added_to_list
+  :line: 258
   :message: ''
   :unity_test_time: 0
-- :test: test_doubleLinkedListRemoveItemFromTail_given_list_which_contains_item1_expect_function_return_itemRemoved_as_item1_and_head_and_tail_of_list_points_to_NULL
-  :line: 328
+- :test: test_doubleLinkedListAddItemToTail_given_NULL_item_and_list_containing_an_item_expect_no_item_is_added_and_list_remains_the_same
+  :line: 296
   :message: ''
   :unity_test_time: 0
-- :test: test_doubleLinkedListRemoveItemFromTail_given_list_which_contains_item1_and_item2_expect_function_return_itemRemoved_as_item2_and_head_and_tail_of_list_points_to_item1
-  :line: 369
+- :test: test_doubleLinkedListAddItemToTail_given_item2_and_list_containing_item1_expect_item2_added_to_tail_of_list
+  :line: 334
   :message: ''
   :unity_test_time: 0
-- :test: test_doubleLinkedListRemoveItemFromTail_given_list_which_contains_item1_item2_and_item3_expect_function_return_itemRemoved_as_item3_and_head_points_to_item1_tail_points_to_item2
-  :line: 415
+- :test: test_doubleLinkedListAddItemToTail_given_item3_and_list_containing_item1_and_item2_expect_item3_added_to_tail_of_list
+  :line: 374
+  :message: ''
+  :unity_test_time: 0
+- :test: test_doubleLinkedListRemoveItemFromHead_given_empty_list_expect_function_return_item_removed_as_NULL
+  :line: 422
+  :message: ''
+  :unity_test_time: 0
+- :test: test_doubleLinkedListRemoveItemFromHead_given_list_containing_item1_expect_function_return_item_removed_as_item1
+  :line: 458
+  :message: ''
+  :unity_test_time: 0
+- :test: test_doubleLinkedListRemoveItemFromHead_given_list_containing_item1_and_item2_expect_function_return_item_removed_as_item2
+  :line: 500
+  :message: ''
+  :unity_test_time: 0
+- :test: test_doubleLinkedListRemoveItemFromHead_given_list_containing_item1_item2_and_item3_expect_function_return_item_removed_as_item3
+  :line: 547
+  :message: ''
+  :unity_test_time: 0
+- :test: test_doubleLinkedListRemoveItemFromTail_given_empty_list_expect_function_return_item_removed_as_NULL
+  :line: 594
+  :message: ''
+  :unity_test_time: 0
+- :test: test_doubleLinkedListRemoveItemFromTail_given_list_containing_item1_expect_function_return_item_removed_as_item1
+  :line: 630
+  :message: ''
+  :unity_test_time: 0
+- :test: test_doubleLinkedListRemoveItemFromTail_given_list_containing_item1_and_item2_expect_function_return_item_removed_as_item2
+  :line: 671
+  :message: ''
+  :unity_test_time: 0
+- :test: test_doubleLinkedListRemoveItemFromTail_given_list_containing_item1_item2_and_item3_expect_function_return_item_removed_as_item3
+  :line: 717
   :message: ''
   :unity_test_time: 0
 :failures: []
 :ignores: []
 :counts:
-  :total: 10
-  :passed: 10
+  :total: 18
+  :passed: 18
   :failed: 0
   :ignored: 0
 :stdout: []
-:time: 0.039856499992311
+:time: 0.04406260000541806

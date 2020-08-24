@@ -17,131 +17,85 @@ void tearDown(void)
 
 }
 
-void test_doubleLinkedListAddItemToHead_given_item2_expect_head_points_item2_and_tail_points_item1_and_both_item1next_and_item2prev_points_to_null() {
+void test_doubleLinkedListAddItemToHead_given_NULL_item_and_empty_list_expect_list_is_still_empty_after_adding() {
 
 
 
- ListItem item1 = {
+ DoubleLinkedList list = {
 
-                  ((void *)0)
+                         ((void *)0)
 
-                      , 
+                             , 
 
-                        ((void *)0)
+                               ((void *)0)
 
-                            , 10};
-
- ListItem item2 = {
-
-                  ((void *)0)
-
-                      , 
-
-                        ((void *)0)
-
-                            , 20};
-
- DoubleLinkedList list = {&item1, &item1, 1};
+                                   , 0};
 
 
 
- int c = doubleLinkedListAddItemToHead(&list, &item2);
+ int count = doubleLinkedListAddItemToHead(&list, 
+
+                                                 ((void *)0)
+
+                                                     );
 
 
-
- UnityAssertEqualNumber((UNITY_INT64)((&item2)), (UNITY_INT64)((list.head)), (
-
-((void *)0)
-
-), (UNITY_UINT)(43), UNITY_DISPLAY_STYLE_HEX64);
-
- UnityAssertEqualNumber((UNITY_INT64)((&item1)), (UNITY_INT64)((list.tail)), (
-
-((void *)0)
-
-), (UNITY_UINT)(44), UNITY_DISPLAY_STYLE_HEX64);
-
- UnityAssertEqualNumber((UNITY_INT64)((&item1)), (UNITY_INT64)((item2.next)), (
-
-((void *)0)
-
-), (UNITY_UINT)(45), UNITY_DISPLAY_STYLE_HEX64);
-
- UnityAssertEqualNumber((UNITY_INT64)((&item2)), (UNITY_INT64)((item1.prev)), (
-
-((void *)0)
-
-), (UNITY_UINT)(46), UNITY_DISPLAY_STYLE_HEX64);
 
  UnityAssertEqualNumber((UNITY_INT64)((
 
 ((void *)0)
 
-)), (UNITY_INT64)((item2.prev)), (
+)), (UNITY_INT64)((list.head)), (
 
 ((void *)0)
 
-), (UNITY_UINT)(47), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(37), UNITY_DISPLAY_STYLE_HEX64);
 
  UnityAssertEqualNumber((UNITY_INT64)((
 
 ((void *)0)
 
-)), (UNITY_INT64)((item1.next)), (
+)), (UNITY_INT64)((list.tail)), (
 
 ((void *)0)
 
-), (UNITY_UINT)(48), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(38), UNITY_DISPLAY_STYLE_HEX64);
 
- UnityAssertEqualNumber((UNITY_INT)((2)), (UNITY_INT)((c)), (
-
-((void *)0)
-
-), (UNITY_UINT)(49), UNITY_DISPLAY_STYLE_INT);
-
- UnityAssertEqualNumber((UNITY_INT)((10)), (UNITY_INT)((item1.data)), (
+ UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((count)), (
 
 ((void *)0)
 
-), (UNITY_UINT)(50), UNITY_DISPLAY_STYLE_INT);
-
- UnityAssertEqualNumber((UNITY_INT)((20)), (UNITY_INT)((item2.data)), (
-
-((void *)0)
-
-), (UNITY_UINT)(51), UNITY_DISPLAY_STYLE_INT);
+), (UNITY_UINT)(39), UNITY_DISPLAY_STYLE_INT);
 
 }
 
-void test_doubleLinkedListAddItemToTail_given_item2_expect_tail_points_item2_and_head_points_item1_and_both_item2next_and_item1prev_points_to_null() {
+void test_doubleLinkedListAddItemToHead_given_item1_and_empty_list_expect_item1_added_to_list() {
 
 
 
- ListItem item1 = {
+  ListItem item1 = {
 
-                  ((void *)0)
+                   ((void *)0)
 
-                      , 
+                       , 
 
-                        ((void *)0)
+                         ((void *)0)
 
-                            , 10};
+                             , 10};
 
- ListItem item2 = {
+ DoubleLinkedList list = {
 
-                  ((void *)0)
+                         ((void *)0)
 
-                      , 
+                             , 
 
-                        ((void *)0)
+                               ((void *)0)
 
-                            , 20};
-
- DoubleLinkedList list = {&item1, &item1, 1};
+                                   , 0};
 
 
 
- int c = doubleLinkedListAddItemToTail(&list, &item2);
+ int count = doubleLinkedListAddItemToHead(&list, &item1);
 
 
 
@@ -149,25 +103,23 @@ void test_doubleLinkedListAddItemToTail_given_item2_expect_tail_points_item2_and
 
 ((void *)0)
 
-), (UNITY_UINT)(86), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(70), UNITY_DISPLAY_STYLE_HEX64);
 
- UnityAssertEqualNumber((UNITY_INT64)((&item2)), (UNITY_INT64)((list.tail)), (
-
-((void *)0)
-
-), (UNITY_UINT)(87), UNITY_DISPLAY_STYLE_HEX64);
-
- UnityAssertEqualNumber((UNITY_INT64)((&item2)), (UNITY_INT64)((item1.next)), (
+ UnityAssertEqualNumber((UNITY_INT64)((&item1)), (UNITY_INT64)((list.tail)), (
 
 ((void *)0)
 
-), (UNITY_UINT)(88), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(71), UNITY_DISPLAY_STYLE_HEX64);
 
- UnityAssertEqualNumber((UNITY_INT64)((&item1)), (UNITY_INT64)((item2.prev)), (
+  UnityAssertEqualNumber((UNITY_INT64)((
 
-((void *)0)
+ ((void *)0)
 
-), (UNITY_UINT)(89), UNITY_DISPLAY_STYLE_HEX64);
+ )), (UNITY_INT64)((item1.next)), (
+
+ ((void *)0)
+
+ ), (UNITY_UINT)(72), UNITY_DISPLAY_STYLE_HEX64);
 
  UnityAssertEqualNumber((UNITY_INT64)((
 
@@ -177,39 +129,743 @@ void test_doubleLinkedListAddItemToTail_given_item2_expect_tail_points_item2_and
 
 ((void *)0)
 
-), (UNITY_UINT)(90), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(73), UNITY_DISPLAY_STYLE_HEX64);
+
+  UnityAssertEqualNumber((UNITY_INT)((10)), (UNITY_INT)((item1.data)), (
+
+ ((void *)0)
+
+ ), (UNITY_UINT)(74), UNITY_DISPLAY_STYLE_INT);
+
+ UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((count)), (
+
+((void *)0)
+
+), (UNITY_UINT)(75), UNITY_DISPLAY_STYLE_INT);
+
+}
+
+void test_doubleLinkedListAddItemToHead_given_NULL_item_and_list_containing_an_item_expect_no_item_is_added_and_list_remains_the_same() {
+
+
+
+  ListItem item1 = {
+
+                   ((void *)0)
+
+                       , 
+
+                         ((void *)0)
+
+                             , 10};
+
+ DoubleLinkedList list = {&item1, &item1, 1};
+
+
+
+ int count = doubleLinkedListAddItemToHead(&list, 
+
+                                                 ((void *)0)
+
+                                                     );
+
+
+
+ UnityAssertEqualNumber((UNITY_INT64)((&item1)), (UNITY_INT64)((list.head)), (
+
+((void *)0)
+
+), (UNITY_UINT)(108), UNITY_DISPLAY_STYLE_HEX64);
+
+ UnityAssertEqualNumber((UNITY_INT64)((&item1)), (UNITY_INT64)((list.tail)), (
+
+((void *)0)
+
+), (UNITY_UINT)(109), UNITY_DISPLAY_STYLE_HEX64);
+
+  UnityAssertEqualNumber((UNITY_INT64)((
+
+ ((void *)0)
+
+ )), (UNITY_INT64)((item1.next)), (
+
+ ((void *)0)
+
+ ), (UNITY_UINT)(110), UNITY_DISPLAY_STYLE_HEX64);
 
  UnityAssertEqualNumber((UNITY_INT64)((
 
 ((void *)0)
 
-)), (UNITY_INT64)((item2.next)), (
+)), (UNITY_INT64)((item1.prev)), (
 
 ((void *)0)
 
-), (UNITY_UINT)(91), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(111), UNITY_DISPLAY_STYLE_HEX64);
 
- UnityAssertEqualNumber((UNITY_INT)((2)), (UNITY_INT)((c)), (
+  UnityAssertEqualNumber((UNITY_INT)((10)), (UNITY_INT)((item1.data)), (
+
+ ((void *)0)
+
+ ), (UNITY_UINT)(112), UNITY_DISPLAY_STYLE_INT);
+
+ UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((count)), (
 
 ((void *)0)
 
-), (UNITY_UINT)(92), UNITY_DISPLAY_STYLE_INT);
+), (UNITY_UINT)(113), UNITY_DISPLAY_STYLE_INT);
+
+}
+
+void test_doubleLinkedListAddItemToHead_given_item2_and_list_containing_item1_expect_item2_added_to_head_of_list() {
+
+
+
+ ListItem item1 = {
+
+                  ((void *)0)
+
+                      , 
+
+                        ((void *)0)
+
+                            , 10};
+
+ ListItem item2 = {
+
+                  ((void *)0)
+
+                      , 
+
+                        ((void *)0)
+
+                            , 20};
+
+ DoubleLinkedList list = {&item1, &item1, 1};
+
+
+
+ int count = doubleLinkedListAddItemToHead(&list, &item2);
+
+
+
+ UnityAssertEqualNumber((UNITY_INT64)((&item2)), (UNITY_INT64)((list.head)), (
+
+((void *)0)
+
+), (UNITY_UINT)(147), UNITY_DISPLAY_STYLE_HEX64);
+
+ UnityAssertEqualNumber((UNITY_INT64)((&item1)), (UNITY_INT64)((list.tail)), (
+
+((void *)0)
+
+), (UNITY_UINT)(148), UNITY_DISPLAY_STYLE_HEX64);
+
+ UnityAssertEqualNumber((UNITY_INT64)((&item1)), (UNITY_INT64)((item2.next)), (
+
+((void *)0)
+
+), (UNITY_UINT)(149), UNITY_DISPLAY_STYLE_HEX64);
+
+ UnityAssertEqualNumber((UNITY_INT64)((&item2)), (UNITY_INT64)((item1.prev)), (
+
+((void *)0)
+
+), (UNITY_UINT)(150), UNITY_DISPLAY_STYLE_HEX64);
+
+ UnityAssertEqualNumber((UNITY_INT64)((
+
+((void *)0)
+
+)), (UNITY_INT64)((item2.prev)), (
+
+((void *)0)
+
+), (UNITY_UINT)(151), UNITY_DISPLAY_STYLE_HEX64);
+
+ UnityAssertEqualNumber((UNITY_INT64)((
+
+((void *)0)
+
+)), (UNITY_INT64)((item1.next)), (
+
+((void *)0)
+
+), (UNITY_UINT)(152), UNITY_DISPLAY_STYLE_HEX64);
+
+ UnityAssertEqualNumber((UNITY_INT)((2)), (UNITY_INT)((count)), (
+
+((void *)0)
+
+), (UNITY_UINT)(153), UNITY_DISPLAY_STYLE_INT);
 
  UnityAssertEqualNumber((UNITY_INT)((10)), (UNITY_INT)((item1.data)), (
 
 ((void *)0)
 
-), (UNITY_UINT)(93), UNITY_DISPLAY_STYLE_INT);
+), (UNITY_UINT)(154), UNITY_DISPLAY_STYLE_INT);
 
  UnityAssertEqualNumber((UNITY_INT)((20)), (UNITY_INT)((item2.data)), (
 
 ((void *)0)
 
-), (UNITY_UINT)(94), UNITY_DISPLAY_STYLE_INT);
+), (UNITY_UINT)(155), UNITY_DISPLAY_STYLE_INT);
 
 }
 
-void test_doubleLinkedListRemoveItemFromHead_given_list_which_contains_no_item_expect_function_return_itemRemoved_as_NULL_and_head_and_tail_of_list_points_to_NULL() {
+void test_doubleLinkedListAddItemToHead_given_item3_and_list_containing_item1_and_item2_expect_item3_added_to_head_of_list() {
+
+
+
+ ListItem item1 = {
+
+                  ((void *)0)
+
+                      , 
+
+                        ((void *)0)
+
+                            , 10};
+
+ ListItem item2 = {
+
+                  ((void *)0)
+
+                      , 
+
+                        ((void *)0)
+
+                            , 20};
+
+  ListItem item3 = {
+
+                   ((void *)0)
+
+                       , 
+
+                         ((void *)0)
+
+                             , 30};
+
+  item1.prev = &item2;
+
+  item2.next = &item1;
+
+ DoubleLinkedList list = {&item2, &item1, 2};
+
+
+
+ int count = doubleLinkedListAddItemToHead(&list, &item3);
+
+
+
+ UnityAssertEqualNumber((UNITY_INT64)((&item3)), (UNITY_INT64)((list.head)), (
+
+((void *)0)
+
+), (UNITY_UINT)(191), UNITY_DISPLAY_STYLE_HEX64);
+
+ UnityAssertEqualNumber((UNITY_INT64)((&item1)), (UNITY_INT64)((list.tail)), (
+
+((void *)0)
+
+), (UNITY_UINT)(192), UNITY_DISPLAY_STYLE_HEX64);
+
+  UnityAssertEqualNumber((UNITY_INT64)((&item2)), (UNITY_INT64)((item3.next)), (
+
+ ((void *)0)
+
+ ), (UNITY_UINT)(193), UNITY_DISPLAY_STYLE_HEX64);
+
+  UnityAssertEqualNumber((UNITY_INT64)((
+
+ ((void *)0)
+
+ )), (UNITY_INT64)((item3.prev)), (
+
+ ((void *)0)
+
+ ), (UNITY_UINT)(194), UNITY_DISPLAY_STYLE_HEX64);
+
+ UnityAssertEqualNumber((UNITY_INT64)((&item1)), (UNITY_INT64)((item2.next)), (
+
+((void *)0)
+
+), (UNITY_UINT)(195), UNITY_DISPLAY_STYLE_HEX64);
+
+  UnityAssertEqualNumber((UNITY_INT64)((&item3)), (UNITY_INT64)((item2.prev)), (
+
+ ((void *)0)
+
+ ), (UNITY_UINT)(196), UNITY_DISPLAY_STYLE_HEX64);
+
+  UnityAssertEqualNumber((UNITY_INT64)((
+
+ ((void *)0)
+
+ )), (UNITY_INT64)((item1.next)), (
+
+ ((void *)0)
+
+ ), (UNITY_UINT)(197), UNITY_DISPLAY_STYLE_HEX64);
+
+ UnityAssertEqualNumber((UNITY_INT64)((&item2)), (UNITY_INT64)((item1.prev)), (
+
+((void *)0)
+
+), (UNITY_UINT)(198), UNITY_DISPLAY_STYLE_HEX64);
+
+ UnityAssertEqualNumber((UNITY_INT)((3)), (UNITY_INT)((count)), (
+
+((void *)0)
+
+), (UNITY_UINT)(199), UNITY_DISPLAY_STYLE_INT);
+
+ UnityAssertEqualNumber((UNITY_INT)((10)), (UNITY_INT)((item1.data)), (
+
+((void *)0)
+
+), (UNITY_UINT)(200), UNITY_DISPLAY_STYLE_INT);
+
+ UnityAssertEqualNumber((UNITY_INT)((20)), (UNITY_INT)((item2.data)), (
+
+((void *)0)
+
+), (UNITY_UINT)(201), UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((UNITY_INT)((30)), (UNITY_INT)((item3.data)), (
+
+ ((void *)0)
+
+ ), (UNITY_UINT)(202), UNITY_DISPLAY_STYLE_INT);
+
+}
+
+void test_doubleLinkedListAddItemToTail_given_NULL_item_and_empty_list_expect_list_is_still_empty_after_adding() {
+
+
+
+ DoubleLinkedList list = {
+
+                         ((void *)0)
+
+                             , 
+
+                               ((void *)0)
+
+                                   , 0};
+
+
+
+ int count = doubleLinkedListAddItemToTail(&list, 
+
+                                                 ((void *)0)
+
+                                                     );
+
+
+
+ UnityAssertEqualNumber((UNITY_INT64)((
+
+((void *)0)
+
+)), (UNITY_INT64)((list.head)), (
+
+((void *)0)
+
+), (UNITY_UINT)(232), UNITY_DISPLAY_STYLE_HEX64);
+
+ UnityAssertEqualNumber((UNITY_INT64)((
+
+((void *)0)
+
+)), (UNITY_INT64)((list.tail)), (
+
+((void *)0)
+
+), (UNITY_UINT)(233), UNITY_DISPLAY_STYLE_HEX64);
+
+ UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((count)), (
+
+((void *)0)
+
+), (UNITY_UINT)(234), UNITY_DISPLAY_STYLE_INT);
+
+}
+
+void test_doubleLinkedListAddItemToTail_given_item1_and_empty_list_expect_item1_added_to_list() {
+
+
+
+  ListItem item1 = {
+
+                   ((void *)0)
+
+                       , 
+
+                         ((void *)0)
+
+                             , 10};
+
+ DoubleLinkedList list = {
+
+                         ((void *)0)
+
+                             , 
+
+                               ((void *)0)
+
+                                   , 0};
+
+
+
+ int count = doubleLinkedListAddItemToTail(&list, &item1);
+
+
+
+ UnityAssertEqualNumber((UNITY_INT64)((&item1)), (UNITY_INT64)((list.head)), (
+
+((void *)0)
+
+), (UNITY_UINT)(265), UNITY_DISPLAY_STYLE_HEX64);
+
+ UnityAssertEqualNumber((UNITY_INT64)((&item1)), (UNITY_INT64)((list.tail)), (
+
+((void *)0)
+
+), (UNITY_UINT)(266), UNITY_DISPLAY_STYLE_HEX64);
+
+  UnityAssertEqualNumber((UNITY_INT64)((
+
+ ((void *)0)
+
+ )), (UNITY_INT64)((item1.next)), (
+
+ ((void *)0)
+
+ ), (UNITY_UINT)(267), UNITY_DISPLAY_STYLE_HEX64);
+
+ UnityAssertEqualNumber((UNITY_INT64)((
+
+((void *)0)
+
+)), (UNITY_INT64)((item1.prev)), (
+
+((void *)0)
+
+), (UNITY_UINT)(268), UNITY_DISPLAY_STYLE_HEX64);
+
+  UnityAssertEqualNumber((UNITY_INT)((10)), (UNITY_INT)((item1.data)), (
+
+ ((void *)0)
+
+ ), (UNITY_UINT)(269), UNITY_DISPLAY_STYLE_INT);
+
+ UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((count)), (
+
+((void *)0)
+
+), (UNITY_UINT)(270), UNITY_DISPLAY_STYLE_INT);
+
+}
+
+void test_doubleLinkedListAddItemToTail_given_NULL_item_and_list_containing_an_item_expect_no_item_is_added_and_list_remains_the_same() {
+
+
+
+  ListItem item1 = {
+
+                   ((void *)0)
+
+                       , 
+
+                         ((void *)0)
+
+                             , 10};
+
+ DoubleLinkedList list = {&item1, &item1, 1};
+
+
+
+ int count = doubleLinkedListAddItemToTail(&list, 
+
+                                                 ((void *)0)
+
+                                                     );
+
+
+
+ UnityAssertEqualNumber((UNITY_INT64)((&item1)), (UNITY_INT64)((list.head)), (
+
+((void *)0)
+
+), (UNITY_UINT)(303), UNITY_DISPLAY_STYLE_HEX64);
+
+ UnityAssertEqualNumber((UNITY_INT64)((&item1)), (UNITY_INT64)((list.tail)), (
+
+((void *)0)
+
+), (UNITY_UINT)(304), UNITY_DISPLAY_STYLE_HEX64);
+
+  UnityAssertEqualNumber((UNITY_INT64)((
+
+ ((void *)0)
+
+ )), (UNITY_INT64)((item1.next)), (
+
+ ((void *)0)
+
+ ), (UNITY_UINT)(305), UNITY_DISPLAY_STYLE_HEX64);
+
+ UnityAssertEqualNumber((UNITY_INT64)((
+
+((void *)0)
+
+)), (UNITY_INT64)((item1.prev)), (
+
+((void *)0)
+
+), (UNITY_UINT)(306), UNITY_DISPLAY_STYLE_HEX64);
+
+  UnityAssertEqualNumber((UNITY_INT)((10)), (UNITY_INT)((item1.data)), (
+
+ ((void *)0)
+
+ ), (UNITY_UINT)(307), UNITY_DISPLAY_STYLE_INT);
+
+ UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((count)), (
+
+((void *)0)
+
+), (UNITY_UINT)(308), UNITY_DISPLAY_STYLE_INT);
+
+}
+
+void test_doubleLinkedListAddItemToTail_given_item2_and_list_containing_item1_expect_item2_added_to_tail_of_list() {
+
+
+
+ ListItem item1 = {
+
+                  ((void *)0)
+
+                      , 
+
+                        ((void *)0)
+
+                            , 10};
+
+ ListItem item2 = {
+
+                  ((void *)0)
+
+                      , 
+
+                        ((void *)0)
+
+                            , 20};
+
+ DoubleLinkedList list = {&item1, &item1, 1};
+
+
+
+ int count = doubleLinkedListAddItemToTail(&list, &item2);
+
+
+
+ UnityAssertEqualNumber((UNITY_INT64)((&item1)), (UNITY_INT64)((list.head)), (
+
+((void *)0)
+
+), (UNITY_UINT)(342), UNITY_DISPLAY_STYLE_HEX64);
+
+ UnityAssertEqualNumber((UNITY_INT64)((&item2)), (UNITY_INT64)((list.tail)), (
+
+((void *)0)
+
+), (UNITY_UINT)(343), UNITY_DISPLAY_STYLE_HEX64);
+
+  UnityAssertEqualNumber((UNITY_INT64)((
+
+ ((void *)0)
+
+ )), (UNITY_INT64)((item1.prev)), (
+
+ ((void *)0)
+
+ ), (UNITY_UINT)(344), UNITY_DISPLAY_STYLE_HEX64);
+
+ UnityAssertEqualNumber((UNITY_INT64)((&item2)), (UNITY_INT64)((item1.next)), (
+
+((void *)0)
+
+), (UNITY_UINT)(345), UNITY_DISPLAY_STYLE_HEX64);
+
+  UnityAssertEqualNumber((UNITY_INT64)((&item1)), (UNITY_INT64)((item2.prev)), (
+
+ ((void *)0)
+
+ ), (UNITY_UINT)(346), UNITY_DISPLAY_STYLE_HEX64);
+
+  UnityAssertEqualNumber((UNITY_INT64)((
+
+ ((void *)0)
+
+ )), (UNITY_INT64)((item2.next)), (
+
+ ((void *)0)
+
+ ), (UNITY_UINT)(347), UNITY_DISPLAY_STYLE_HEX64);
+
+ UnityAssertEqualNumber((UNITY_INT)((2)), (UNITY_INT)((count)), (
+
+((void *)0)
+
+), (UNITY_UINT)(348), UNITY_DISPLAY_STYLE_INT);
+
+ UnityAssertEqualNumber((UNITY_INT)((10)), (UNITY_INT)((item1.data)), (
+
+((void *)0)
+
+), (UNITY_UINT)(349), UNITY_DISPLAY_STYLE_INT);
+
+ UnityAssertEqualNumber((UNITY_INT)((20)), (UNITY_INT)((item2.data)), (
+
+((void *)0)
+
+), (UNITY_UINT)(350), UNITY_DISPLAY_STYLE_INT);
+
+}
+
+void test_doubleLinkedListAddItemToTail_given_item3_and_list_containing_item1_and_item2_expect_item3_added_to_tail_of_list() {
+
+
+
+ ListItem item1 = {
+
+                  ((void *)0)
+
+                      , 
+
+                        ((void *)0)
+
+                            , 10};
+
+ ListItem item2 = {
+
+                  ((void *)0)
+
+                      , 
+
+                        ((void *)0)
+
+                            , 20};
+
+  ListItem item3 = {
+
+                   ((void *)0)
+
+                       , 
+
+                         ((void *)0)
+
+                             , 30};
+
+  item1.next = &item2;
+
+  item2.prev = &item1;
+
+ DoubleLinkedList list = {&item1, &item2, 2};
+
+
+
+ int count = doubleLinkedListAddItemToTail(&list, &item3);
+
+
+
+ UnityAssertEqualNumber((UNITY_INT64)((&item1)), (UNITY_INT64)((list.head)), (
+
+((void *)0)
+
+), (UNITY_UINT)(385), UNITY_DISPLAY_STYLE_HEX64);
+
+ UnityAssertEqualNumber((UNITY_INT64)((&item3)), (UNITY_INT64)((list.tail)), (
+
+((void *)0)
+
+), (UNITY_UINT)(386), UNITY_DISPLAY_STYLE_HEX64);
+
+  UnityAssertEqualNumber((UNITY_INT64)((
+
+ ((void *)0)
+
+ )), (UNITY_INT64)((item3.next)), (
+
+ ((void *)0)
+
+ ), (UNITY_UINT)(387), UNITY_DISPLAY_STYLE_HEX64);
+
+  UnityAssertEqualNumber((UNITY_INT64)((&item2)), (UNITY_INT64)((item3.prev)), (
+
+ ((void *)0)
+
+ ), (UNITY_UINT)(388), UNITY_DISPLAY_STYLE_HEX64);
+
+ UnityAssertEqualNumber((UNITY_INT64)((&item3)), (UNITY_INT64)((item2.next)), (
+
+((void *)0)
+
+), (UNITY_UINT)(389), UNITY_DISPLAY_STYLE_HEX64);
+
+  UnityAssertEqualNumber((UNITY_INT64)((&item1)), (UNITY_INT64)((item2.prev)), (
+
+ ((void *)0)
+
+ ), (UNITY_UINT)(390), UNITY_DISPLAY_STYLE_HEX64);
+
+  UnityAssertEqualNumber((UNITY_INT64)((&item2)), (UNITY_INT64)((item1.next)), (
+
+ ((void *)0)
+
+ ), (UNITY_UINT)(391), UNITY_DISPLAY_STYLE_HEX64);
+
+ UnityAssertEqualNumber((UNITY_INT64)((
+
+((void *)0)
+
+)), (UNITY_INT64)((item1.prev)), (
+
+((void *)0)
+
+), (UNITY_UINT)(392), UNITY_DISPLAY_STYLE_HEX64);
+
+ UnityAssertEqualNumber((UNITY_INT)((3)), (UNITY_INT)((count)), (
+
+((void *)0)
+
+), (UNITY_UINT)(393), UNITY_DISPLAY_STYLE_INT);
+
+ UnityAssertEqualNumber((UNITY_INT)((10)), (UNITY_INT)((item1.data)), (
+
+((void *)0)
+
+), (UNITY_UINT)(394), UNITY_DISPLAY_STYLE_INT);
+
+ UnityAssertEqualNumber((UNITY_INT)((20)), (UNITY_INT)((item2.data)), (
+
+((void *)0)
+
+), (UNITY_UINT)(395), UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((UNITY_INT)((30)), (UNITY_INT)((item3.data)), (
+
+ ((void *)0)
+
+ ), (UNITY_UINT)(396), UNITY_DISPLAY_STYLE_INT);
+
+}
+
+void test_doubleLinkedListRemoveItemFromHead_given_empty_list_expect_function_return_item_removed_as_NULL() {
 
   ListItem* itemRemoved;
 
@@ -229,45 +885,45 @@ void test_doubleLinkedListRemoveItemFromHead_given_list_which_contains_no_item_e
 
 
 
- UnityAssertEqualNumber((UNITY_INT64)((
+  UnityAssertEqualNumber((UNITY_INT64)((
 
-((void *)0)
+ ((void *)0)
 
-)), (UNITY_INT64)((itemRemoved)), (
+ )), (UNITY_INT64)((itemRemoved)), (
 
-((void *)0)
+ ((void *)0)
 
-), (UNITY_UINT)(126), UNITY_DISPLAY_STYLE_HEX64);
+ ), (UNITY_UINT)(428), UNITY_DISPLAY_STYLE_HEX64);
 
- UnityAssertEqualNumber((UNITY_INT64)((
+  UnityAssertEqualNumber((UNITY_INT64)((
 
-((void *)0)
+ ((void *)0)
 
-)), (UNITY_INT64)((list.head)), (
+ )), (UNITY_INT64)((list.head)), (
 
-((void *)0)
+ ((void *)0)
 
-), (UNITY_UINT)(127), UNITY_DISPLAY_STYLE_HEX64);
+ ), (UNITY_UINT)(429), UNITY_DISPLAY_STYLE_HEX64);
 
- UnityAssertEqualNumber((UNITY_INT64)((
+  UnityAssertEqualNumber((UNITY_INT64)((
 
-((void *)0)
+ ((void *)0)
 
-)), (UNITY_INT64)((list.tail)), (
+ )), (UNITY_INT64)((list.tail)), (
 
-((void *)0)
+ ((void *)0)
 
-), (UNITY_UINT)(128), UNITY_DISPLAY_STYLE_HEX64);
+ ), (UNITY_UINT)(430), UNITY_DISPLAY_STYLE_HEX64);
 
- UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((list.count)), (
+  UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((list.count)), (
 
-((void *)0)
+ ((void *)0)
 
-), (UNITY_UINT)(129), UNITY_DISPLAY_STYLE_INT);
+ ), (UNITY_UINT)(431), UNITY_DISPLAY_STYLE_INT);
 
 }
 
-void test_doubleLinkedListRemoveItemFromHead_given_list_which_contains_item1_expect_function_return_itemRemoved_as_item1_and_head_and_tail_of_list_points_to_NULL() {
+void test_doubleLinkedListRemoveItemFromHead_given_list_containing_item1_expect_function_return_item_removed_as_item1() {
 
   ListItem* itemRemoved;
 
@@ -293,7 +949,7 @@ void test_doubleLinkedListRemoveItemFromHead_given_list_which_contains_item1_exp
 
 ((void *)0)
 
-), (UNITY_UINT)(163), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(465), UNITY_DISPLAY_STYLE_HEX64);
 
  UnityAssertEqualNumber((UNITY_INT64)((
 
@@ -303,7 +959,7 @@ void test_doubleLinkedListRemoveItemFromHead_given_list_which_contains_item1_exp
 
 ((void *)0)
 
-), (UNITY_UINT)(164), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(466), UNITY_DISPLAY_STYLE_HEX64);
 
  UnityAssertEqualNumber((UNITY_INT64)((
 
@@ -313,13 +969,13 @@ void test_doubleLinkedListRemoveItemFromHead_given_list_which_contains_item1_exp
 
 ((void *)0)
 
-), (UNITY_UINT)(165), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(467), UNITY_DISPLAY_STYLE_HEX64);
 
  UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((list.count)), (
 
 ((void *)0)
 
-), (UNITY_UINT)(166), UNITY_DISPLAY_STYLE_INT);
+), (UNITY_UINT)(468), UNITY_DISPLAY_STYLE_INT);
 
  UnityAssertEqualNumber((UNITY_INT64)((
 
@@ -329,7 +985,7 @@ void test_doubleLinkedListRemoveItemFromHead_given_list_which_contains_item1_exp
 
 ((void *)0)
 
-), (UNITY_UINT)(167), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(469), UNITY_DISPLAY_STYLE_HEX64);
 
  UnityAssertEqualNumber((UNITY_INT64)((
 
@@ -339,17 +995,17 @@ void test_doubleLinkedListRemoveItemFromHead_given_list_which_contains_item1_exp
 
 ((void *)0)
 
-), (UNITY_UINT)(168), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(470), UNITY_DISPLAY_STYLE_HEX64);
 
  UnityAssertEqualNumber((UNITY_INT)((10)), (UNITY_INT)((itemRemoved->data)), (
 
 ((void *)0)
 
-), (UNITY_UINT)(169), UNITY_DISPLAY_STYLE_INT);
+), (UNITY_UINT)(471), UNITY_DISPLAY_STYLE_INT);
 
 }
 
-void test_doubleLinkedListRemoveItemFromHead_given_list_which_contains_item1_and_item2_expect_function_return_itemRemoved_as_item2_and_head_and_tail_of_list_points_to_item1() {
+void test_doubleLinkedListRemoveItemFromHead_given_list_containing_item1_and_item2_expect_function_return_item_removed_as_item2() {
 
   ListItem* itemRemoved;
 
@@ -363,15 +1019,15 @@ void test_doubleLinkedListRemoveItemFromHead_given_list_which_contains_item1_and
 
                              , 10};
 
- ListItem item2 = {
+  ListItem item2 = {
 
-                  ((void *)0)
+                   ((void *)0)
 
-                      , 
+                       , 
 
-                        ((void *)0)
+                         ((void *)0)
 
-                            , 20};
+                             , 20};
 
   item1.prev = &item2;
 
@@ -389,19 +1045,19 @@ void test_doubleLinkedListRemoveItemFromHead_given_list_which_contains_item1_and
 
 ((void *)0)
 
-), (UNITY_UINT)(208), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(510), UNITY_DISPLAY_STYLE_HEX64);
 
  UnityAssertEqualNumber((UNITY_INT64)((&item1)), (UNITY_INT64)((list.head)), (
 
 ((void *)0)
 
-), (UNITY_UINT)(209), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(511), UNITY_DISPLAY_STYLE_HEX64);
 
-  UnityAssertEqualNumber((UNITY_INT64)((&item1)), (UNITY_INT64)((list.tail)), (
+ UnityAssertEqualNumber((UNITY_INT64)((&item1)), (UNITY_INT64)((list.tail)), (
 
- ((void *)0)
+((void *)0)
 
- ), (UNITY_UINT)(210), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(512), UNITY_DISPLAY_STYLE_HEX64);
 
  UnityAssertEqualNumber((UNITY_INT64)((
 
@@ -411,23 +1067,23 @@ void test_doubleLinkedListRemoveItemFromHead_given_list_which_contains_item1_and
 
 ((void *)0)
 
-), (UNITY_UINT)(211), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(513), UNITY_DISPLAY_STYLE_HEX64);
 
-  UnityAssertEqualNumber((UNITY_INT64)((
+ UnityAssertEqualNumber((UNITY_INT64)((
 
- ((void *)0)
+((void *)0)
 
- )), (UNITY_INT64)((item1.next)), (
+)), (UNITY_INT64)((item1.next)), (
 
- ((void *)0)
+((void *)0)
 
- ), (UNITY_UINT)(212), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(514), UNITY_DISPLAY_STYLE_HEX64);
 
  UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((list.count)), (
 
 ((void *)0)
 
-), (UNITY_UINT)(213), UNITY_DISPLAY_STYLE_INT);
+), (UNITY_UINT)(515), UNITY_DISPLAY_STYLE_INT);
 
  UnityAssertEqualNumber((UNITY_INT64)((
 
@@ -437,7 +1093,7 @@ void test_doubleLinkedListRemoveItemFromHead_given_list_which_contains_item1_and
 
 ((void *)0)
 
-), (UNITY_UINT)(214), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(516), UNITY_DISPLAY_STYLE_HEX64);
 
  UnityAssertEqualNumber((UNITY_INT64)((
 
@@ -447,17 +1103,17 @@ void test_doubleLinkedListRemoveItemFromHead_given_list_which_contains_item1_and
 
 ((void *)0)
 
-), (UNITY_UINT)(215), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(517), UNITY_DISPLAY_STYLE_HEX64);
 
  UnityAssertEqualNumber((UNITY_INT)((20)), (UNITY_INT)((itemRemoved->data)), (
 
 ((void *)0)
 
-), (UNITY_UINT)(216), UNITY_DISPLAY_STYLE_INT);
+), (UNITY_UINT)(518), UNITY_DISPLAY_STYLE_INT);
 
 }
 
-void test_doubleLinkedListRemoveItemFromHead_given_list_which_contains_item1_item2_and_item3_expect_function_return_itemRemoved_as_item3_and_head_points_to_item2_tail_points_to_item1() {
+void test_doubleLinkedListRemoveItemFromHead_given_list_containing_item1_item2_and_item3_expect_function_return_item_removed_as_item3() {
 
   ListItem* itemRemoved;
 
@@ -471,15 +1127,15 @@ void test_doubleLinkedListRemoveItemFromHead_given_list_which_contains_item1_ite
 
                              , 10};
 
- ListItem item2 = {
+  ListItem item2 = {
 
-                  ((void *)0)
+                   ((void *)0)
 
-                      , 
+                       , 
 
-                        ((void *)0)
+                         ((void *)0)
 
-                            , 20};
+                             , 20};
 
   ListItem item3 = {
 
@@ -511,19 +1167,19 @@ void test_doubleLinkedListRemoveItemFromHead_given_list_which_contains_item1_ite
 
 ((void *)0)
 
-), (UNITY_UINT)(258), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(560), UNITY_DISPLAY_STYLE_HEX64);
 
  UnityAssertEqualNumber((UNITY_INT64)((&item2)), (UNITY_INT64)((list.head)), (
 
 ((void *)0)
 
-), (UNITY_UINT)(259), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(561), UNITY_DISPLAY_STYLE_HEX64);
 
-  UnityAssertEqualNumber((UNITY_INT64)((&item1)), (UNITY_INT64)((list.tail)), (
+ UnityAssertEqualNumber((UNITY_INT64)((&item1)), (UNITY_INT64)((list.tail)), (
 
- ((void *)0)
+((void *)0)
 
- ), (UNITY_UINT)(260), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(562), UNITY_DISPLAY_STYLE_HEX64);
 
  UnityAssertEqualNumber((UNITY_INT64)((
 
@@ -533,23 +1189,23 @@ void test_doubleLinkedListRemoveItemFromHead_given_list_which_contains_item1_ite
 
 ((void *)0)
 
-), (UNITY_UINT)(261), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(563), UNITY_DISPLAY_STYLE_HEX64);
 
-  UnityAssertEqualNumber((UNITY_INT64)((
+ UnityAssertEqualNumber((UNITY_INT64)((
 
- ((void *)0)
+((void *)0)
 
- )), (UNITY_INT64)((item1.next)), (
+)), (UNITY_INT64)((item1.next)), (
 
- ((void *)0)
+((void *)0)
 
- ), (UNITY_UINT)(262), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(564), UNITY_DISPLAY_STYLE_HEX64);
 
  UnityAssertEqualNumber((UNITY_INT)((2)), (UNITY_INT)((list.count)), (
 
 ((void *)0)
 
-), (UNITY_UINT)(263), UNITY_DISPLAY_STYLE_INT);
+), (UNITY_UINT)(565), UNITY_DISPLAY_STYLE_INT);
 
  UnityAssertEqualNumber((UNITY_INT64)((
 
@@ -559,7 +1215,7 @@ void test_doubleLinkedListRemoveItemFromHead_given_list_which_contains_item1_ite
 
 ((void *)0)
 
-), (UNITY_UINT)(264), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(566), UNITY_DISPLAY_STYLE_HEX64);
 
  UnityAssertEqualNumber((UNITY_INT64)((
 
@@ -569,17 +1225,17 @@ void test_doubleLinkedListRemoveItemFromHead_given_list_which_contains_item1_ite
 
 ((void *)0)
 
-), (UNITY_UINT)(265), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(567), UNITY_DISPLAY_STYLE_HEX64);
 
  UnityAssertEqualNumber((UNITY_INT)((30)), (UNITY_INT)((itemRemoved->data)), (
 
 ((void *)0)
 
-), (UNITY_UINT)(266), UNITY_DISPLAY_STYLE_INT);
+), (UNITY_UINT)(568), UNITY_DISPLAY_STYLE_INT);
 
 }
 
-void test_doubleLinkedListRemoveItemFromTail_given_list_which_contains_no_item_expect_function_return_itemRemoved_as_NULL_and_head_and_tail_of_list_points_to_NULL() {
+void test_doubleLinkedListRemoveItemFromTail_given_empty_list_expect_function_return_item_removed_as_NULL() {
 
   ListItem* itemRemoved;
 
@@ -607,7 +1263,7 @@ void test_doubleLinkedListRemoveItemFromTail_given_list_which_contains_no_item_e
 
 ((void *)0)
 
-), (UNITY_UINT)(298), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(600), UNITY_DISPLAY_STYLE_HEX64);
 
  UnityAssertEqualNumber((UNITY_INT64)((
 
@@ -617,7 +1273,7 @@ void test_doubleLinkedListRemoveItemFromTail_given_list_which_contains_no_item_e
 
 ((void *)0)
 
-), (UNITY_UINT)(299), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(601), UNITY_DISPLAY_STYLE_HEX64);
 
  UnityAssertEqualNumber((UNITY_INT64)((
 
@@ -627,17 +1283,17 @@ void test_doubleLinkedListRemoveItemFromTail_given_list_which_contains_no_item_e
 
 ((void *)0)
 
-), (UNITY_UINT)(300), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(602), UNITY_DISPLAY_STYLE_HEX64);
 
  UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((list.count)), (
 
 ((void *)0)
 
-), (UNITY_UINT)(301), UNITY_DISPLAY_STYLE_INT);
+), (UNITY_UINT)(603), UNITY_DISPLAY_STYLE_INT);
 
 }
 
-void test_doubleLinkedListRemoveItemFromTail_given_list_which_contains_item1_expect_function_return_itemRemoved_as_item1_and_head_and_tail_of_list_points_to_NULL() {
+void test_doubleLinkedListRemoveItemFromTail_given_list_containing_item1_expect_function_return_item_removed_as_item1() {
 
   ListItem* itemRemoved;
 
@@ -663,7 +1319,7 @@ void test_doubleLinkedListRemoveItemFromTail_given_list_which_contains_item1_exp
 
 ((void *)0)
 
-), (UNITY_UINT)(335), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(637), UNITY_DISPLAY_STYLE_HEX64);
 
  UnityAssertEqualNumber((UNITY_INT64)((
 
@@ -673,7 +1329,7 @@ void test_doubleLinkedListRemoveItemFromTail_given_list_which_contains_item1_exp
 
 ((void *)0)
 
-), (UNITY_UINT)(336), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(638), UNITY_DISPLAY_STYLE_HEX64);
 
  UnityAssertEqualNumber((UNITY_INT64)((
 
@@ -683,13 +1339,13 @@ void test_doubleLinkedListRemoveItemFromTail_given_list_which_contains_item1_exp
 
 ((void *)0)
 
-), (UNITY_UINT)(337), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(639), UNITY_DISPLAY_STYLE_HEX64);
 
  UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((list.count)), (
 
 ((void *)0)
 
-), (UNITY_UINT)(338), UNITY_DISPLAY_STYLE_INT);
+), (UNITY_UINT)(640), UNITY_DISPLAY_STYLE_INT);
 
  UnityAssertEqualNumber((UNITY_INT64)((
 
@@ -699,7 +1355,7 @@ void test_doubleLinkedListRemoveItemFromTail_given_list_which_contains_item1_exp
 
 ((void *)0)
 
-), (UNITY_UINT)(339), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(641), UNITY_DISPLAY_STYLE_HEX64);
 
  UnityAssertEqualNumber((UNITY_INT64)((
 
@@ -709,17 +1365,17 @@ void test_doubleLinkedListRemoveItemFromTail_given_list_which_contains_item1_exp
 
 ((void *)0)
 
-), (UNITY_UINT)(340), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(642), UNITY_DISPLAY_STYLE_HEX64);
 
  UnityAssertEqualNumber((UNITY_INT)((10)), (UNITY_INT)((itemRemoved->data)), (
 
 ((void *)0)
 
-), (UNITY_UINT)(341), UNITY_DISPLAY_STYLE_INT);
+), (UNITY_UINT)(643), UNITY_DISPLAY_STYLE_INT);
 
 }
 
-void test_doubleLinkedListRemoveItemFromTail_given_list_which_contains_item1_and_item2_expect_function_return_itemRemoved_as_item2_and_head_and_tail_of_list_points_to_item1() {
+void test_doubleLinkedListRemoveItemFromTail_given_list_containing_item1_and_item2_expect_function_return_item_removed_as_item2() {
 
   ListItem* itemRemoved;
 
@@ -733,15 +1389,15 @@ void test_doubleLinkedListRemoveItemFromTail_given_list_which_contains_item1_and
 
                              , 10};
 
- ListItem item2 = {
+  ListItem item2 = {
 
-                  ((void *)0)
+                   ((void *)0)
 
-                      , 
+                       , 
 
-                        ((void *)0)
+                         ((void *)0)
 
-                            , 20};
+                             , 20};
 
   item1.next = &item2;
 
@@ -755,23 +1411,23 @@ void test_doubleLinkedListRemoveItemFromTail_given_list_which_contains_item1_and
 
 
 
-  UnityAssertEqualNumber((UNITY_INT64)((&item2)), (UNITY_INT64)((itemRemoved)), (
+ UnityAssertEqualNumber((UNITY_INT64)((&item2)), (UNITY_INT64)((itemRemoved)), (
 
- ((void *)0)
+((void *)0)
 
- ), (UNITY_UINT)(379), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(681), UNITY_DISPLAY_STYLE_HEX64);
 
  UnityAssertEqualNumber((UNITY_INT64)((&item1)), (UNITY_INT64)((list.tail)), (
 
 ((void *)0)
 
-), (UNITY_UINT)(380), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(682), UNITY_DISPLAY_STYLE_HEX64);
 
-  UnityAssertEqualNumber((UNITY_INT64)((&item1)), (UNITY_INT64)((list.head)), (
+ UnityAssertEqualNumber((UNITY_INT64)((&item1)), (UNITY_INT64)((list.head)), (
 
- ((void *)0)
+((void *)0)
 
- ), (UNITY_UINT)(381), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(683), UNITY_DISPLAY_STYLE_HEX64);
 
  UnityAssertEqualNumber((UNITY_INT64)((
 
@@ -781,23 +1437,23 @@ void test_doubleLinkedListRemoveItemFromTail_given_list_which_contains_item1_and
 
 ((void *)0)
 
-), (UNITY_UINT)(382), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(684), UNITY_DISPLAY_STYLE_HEX64);
 
-  UnityAssertEqualNumber((UNITY_INT64)((
+ UnityAssertEqualNumber((UNITY_INT64)((
 
- ((void *)0)
+((void *)0)
 
- )), (UNITY_INT64)((item1.prev)), (
+)), (UNITY_INT64)((item1.prev)), (
 
- ((void *)0)
+((void *)0)
 
- ), (UNITY_UINT)(383), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(685), UNITY_DISPLAY_STYLE_HEX64);
 
  UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((list.count)), (
 
 ((void *)0)
 
-), (UNITY_UINT)(384), UNITY_DISPLAY_STYLE_INT);
+), (UNITY_UINT)(686), UNITY_DISPLAY_STYLE_INT);
 
  UnityAssertEqualNumber((UNITY_INT64)((
 
@@ -807,7 +1463,7 @@ void test_doubleLinkedListRemoveItemFromTail_given_list_which_contains_item1_and
 
 ((void *)0)
 
-), (UNITY_UINT)(385), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(687), UNITY_DISPLAY_STYLE_HEX64);
 
  UnityAssertEqualNumber((UNITY_INT64)((
 
@@ -817,17 +1473,17 @@ void test_doubleLinkedListRemoveItemFromTail_given_list_which_contains_item1_and
 
 ((void *)0)
 
-), (UNITY_UINT)(386), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(688), UNITY_DISPLAY_STYLE_HEX64);
 
  UnityAssertEqualNumber((UNITY_INT)((20)), (UNITY_INT)((itemRemoved->data)), (
 
 ((void *)0)
 
-), (UNITY_UINT)(387), UNITY_DISPLAY_STYLE_INT);
+), (UNITY_UINT)(689), UNITY_DISPLAY_STYLE_INT);
 
 }
 
-void test_doubleLinkedListRemoveItemFromTail_given_list_which_contains_item1_item2_and_item3_expect_function_return_itemRemoved_as_item3_and_head_points_to_item1_tail_points_to_item2() {
+void test_doubleLinkedListRemoveItemFromTail_given_list_containing_item1_item2_and_item3_expect_function_return_item_removed_as_item3() {
 
   ListItem* itemRemoved;
 
@@ -841,15 +1497,15 @@ void test_doubleLinkedListRemoveItemFromTail_given_list_which_contains_item1_ite
 
                              , 10};
 
- ListItem item2 = {
+  ListItem item2 = {
 
-                  ((void *)0)
+                   ((void *)0)
 
-                      , 
+                       , 
 
-                        ((void *)0)
+                         ((void *)0)
 
-                            , 20};
+                             , 20};
 
   ListItem item3 = {
 
@@ -877,23 +1533,23 @@ void test_doubleLinkedListRemoveItemFromTail_given_list_which_contains_item1_ite
 
 
 
-  UnityAssertEqualNumber((UNITY_INT64)((&item3)), (UNITY_INT64)((itemRemoved)), (
+ UnityAssertEqualNumber((UNITY_INT64)((&item3)), (UNITY_INT64)((itemRemoved)), (
 
- ((void *)0)
+((void *)0)
 
- ), (UNITY_UINT)(428), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(730), UNITY_DISPLAY_STYLE_HEX64);
 
-  UnityAssertEqualNumber((UNITY_INT64)((&item1)), (UNITY_INT64)((list.head)), (
+ UnityAssertEqualNumber((UNITY_INT64)((&item1)), (UNITY_INT64)((list.head)), (
 
- ((void *)0)
+((void *)0)
 
- ), (UNITY_UINT)(429), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(731), UNITY_DISPLAY_STYLE_HEX64);
 
  UnityAssertEqualNumber((UNITY_INT64)((&item2)), (UNITY_INT64)((list.tail)), (
 
 ((void *)0)
 
-), (UNITY_UINT)(430), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(732), UNITY_DISPLAY_STYLE_HEX64);
 
  UnityAssertEqualNumber((UNITY_INT64)((
 
@@ -903,23 +1559,23 @@ void test_doubleLinkedListRemoveItemFromTail_given_list_which_contains_item1_ite
 
 ((void *)0)
 
-), (UNITY_UINT)(431), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(733), UNITY_DISPLAY_STYLE_HEX64);
 
-  UnityAssertEqualNumber((UNITY_INT64)((
+ UnityAssertEqualNumber((UNITY_INT64)((
 
- ((void *)0)
+((void *)0)
 
- )), (UNITY_INT64)((item1.prev)), (
+)), (UNITY_INT64)((item1.prev)), (
 
- ((void *)0)
+((void *)0)
 
- ), (UNITY_UINT)(432), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(734), UNITY_DISPLAY_STYLE_HEX64);
 
  UnityAssertEqualNumber((UNITY_INT)((2)), (UNITY_INT)((list.count)), (
 
 ((void *)0)
 
-), (UNITY_UINT)(433), UNITY_DISPLAY_STYLE_INT);
+), (UNITY_UINT)(735), UNITY_DISPLAY_STYLE_INT);
 
  UnityAssertEqualNumber((UNITY_INT64)((
 
@@ -929,7 +1585,7 @@ void test_doubleLinkedListRemoveItemFromTail_given_list_which_contains_item1_ite
 
 ((void *)0)
 
-), (UNITY_UINT)(434), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(736), UNITY_DISPLAY_STYLE_HEX64);
 
  UnityAssertEqualNumber((UNITY_INT64)((
 
@@ -939,12 +1595,12 @@ void test_doubleLinkedListRemoveItemFromTail_given_list_which_contains_item1_ite
 
 ((void *)0)
 
-), (UNITY_UINT)(435), UNITY_DISPLAY_STYLE_HEX64);
+), (UNITY_UINT)(737), UNITY_DISPLAY_STYLE_HEX64);
 
  UnityAssertEqualNumber((UNITY_INT)((30)), (UNITY_INT)((itemRemoved->data)), (
 
 ((void *)0)
 
-), (UNITY_UINT)(436), UNITY_DISPLAY_STYLE_INT);
+), (UNITY_UINT)(738), UNITY_DISPLAY_STYLE_INT);
 
 }
