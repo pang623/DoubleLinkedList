@@ -29,14 +29,14 @@ void tearDown(void)
 */
 
 void test_doubleLinkedListAddItemToHead_given_NULL_item_and_empty_list_expect_list_is_still_empty_after_adding() {
-	//initialise items and list
-	DoubleLinkedList list = {NULL, NULL, 0};
-	//add NULL item to list
-	int count = doubleLinkedListAddItemToHead(&list, NULL);
-	//test the linked list
-	TEST_ASSERT_EQUAL_PTR(NULL, list.head);
-	TEST_ASSERT_EQUAL_PTR(NULL, list.tail);
-	TEST_ASSERT_EQUAL(0, count);
+  //initialise items and list
+  DoubleLinkedList list = {NULL, NULL, 0};
+  //add NULL item to list
+  int count = doubleLinkedListAddItemToHead(&list, NULL);
+  //test the linked list
+  TEST_ASSERT_EQUAL_PTR(NULL, list.head);
+  TEST_ASSERT_EQUAL_PTR(NULL, list.tail);
+  TEST_ASSERT_EQUAL(0, count);
 }
 
 /*
@@ -61,18 +61,18 @@ void test_doubleLinkedListAddItemToHead_given_NULL_item_and_empty_list_expect_li
 */
 
 void test_doubleLinkedListAddItemToHead_given_item1_and_empty_list_expect_item1_added_to_list() {
-	//initialise items and list
+  //initialise items and list
   ListItem item1 = {NULL, NULL, 10};
-	DoubleLinkedList list = {NULL, NULL, 0};
-	//add item1 to list
-	int count = doubleLinkedListAddItemToHead(&list, &item1);
-	//test the linked list
-	TEST_ASSERT_EQUAL_PTR(&item1, list.head);
-	TEST_ASSERT_EQUAL_PTR(&item1, list.tail);
+  DoubleLinkedList list = {NULL, NULL, 0};
+  //add item1 to list
+  int count = doubleLinkedListAddItemToHead(&list, &item1);
+  //test the linked list
+  TEST_ASSERT_EQUAL_PTR(&item1, list.head);
+  TEST_ASSERT_EQUAL_PTR(&item1, list.tail);
   TEST_ASSERT_EQUAL_PTR(NULL, item1.next);
-	TEST_ASSERT_EQUAL_PTR(NULL, item1.prev);
+  TEST_ASSERT_EQUAL_PTR(NULL, item1.prev);
   TEST_ASSERT_EQUAL(10, item1.data);
-	TEST_ASSERT_EQUAL(1, count);
+  TEST_ASSERT_EQUAL(1, count);
 }
 
 /*
@@ -99,18 +99,18 @@ void test_doubleLinkedListAddItemToHead_given_item1_and_empty_list_expect_item1_
 */
 
 void test_doubleLinkedListAddItemToHead_given_NULL_item_and_list_containing_an_item_expect_no_item_is_added_and_list_remains_the_same() {
-	//initialise items and list
+  //initialise items and list
   ListItem item1 = {NULL, NULL, 10};
-	DoubleLinkedList list = {&item1, &item1, 1};
-	//add NULL item to list
-	int count = doubleLinkedListAddItemToHead(&list, NULL);
-	//test the linked list
-	TEST_ASSERT_EQUAL_PTR(&item1, list.head);
-	TEST_ASSERT_EQUAL_PTR(&item1, list.tail);
+  DoubleLinkedList list = {&item1, &item1, 1};
+  //add NULL item to list
+  int count = doubleLinkedListAddItemToHead(&list, NULL);
+  //test the linked list
+  TEST_ASSERT_EQUAL_PTR(&item1, list.head);
+  TEST_ASSERT_EQUAL_PTR(&item1, list.tail);
   TEST_ASSERT_EQUAL_PTR(NULL, item1.next);
-	TEST_ASSERT_EQUAL_PTR(NULL, item1.prev);
+  TEST_ASSERT_EQUAL_PTR(NULL, item1.prev);
   TEST_ASSERT_EQUAL(10, item1.data);
-	TEST_ASSERT_EQUAL(1, count);
+  TEST_ASSERT_EQUAL(1, count);
 }
 
 /*
@@ -137,22 +137,22 @@ void test_doubleLinkedListAddItemToHead_given_NULL_item_and_list_containing_an_i
 */
 
 void test_doubleLinkedListAddItemToHead_given_item2_and_list_containing_item1_expect_item2_added_to_head_of_list() {
-	//initialise items and list
-	ListItem item1 = {NULL, NULL, 10};
-	ListItem item2 = {NULL, NULL, 20};
-	DoubleLinkedList list = {&item1, &item1, 1};
-	//add item2 to head
-	int count = doubleLinkedListAddItemToHead(&list, &item2);
-	//test the linked list
-	TEST_ASSERT_EQUAL_PTR(&item2, list.head);
-	TEST_ASSERT_EQUAL_PTR(&item1, list.tail);
-	TEST_ASSERT_EQUAL_PTR(&item1, item2.next);
-	TEST_ASSERT_EQUAL_PTR(&item2, item1.prev);
-	TEST_ASSERT_EQUAL_PTR(NULL, item2.prev);
-	TEST_ASSERT_EQUAL_PTR(NULL, item1.next);
-	TEST_ASSERT_EQUAL(2, count);
-	TEST_ASSERT_EQUAL(10, item1.data);
-	TEST_ASSERT_EQUAL(20, item2.data);
+  //initialise items and list
+  ListItem item1 = {NULL, NULL, 10};
+  ListItem item2 = {NULL, NULL, 20};
+  DoubleLinkedList list = {&item1, &item1, 1};
+  //add item2 to head
+  int count = doubleLinkedListAddItemToHead(&list, &item2);
+  //test the linked list
+  TEST_ASSERT_EQUAL_PTR(&item2, list.head);
+  TEST_ASSERT_EQUAL_PTR(&item1, list.tail);
+  TEST_ASSERT_EQUAL_PTR(&item1, item2.next);
+  TEST_ASSERT_EQUAL_PTR(&item2, item1.prev);
+  TEST_ASSERT_EQUAL_PTR(NULL, item2.prev);
+  TEST_ASSERT_EQUAL_PTR(NULL, item1.next);
+  TEST_ASSERT_EQUAL(2, count);
+  TEST_ASSERT_EQUAL(10, item1.data);
+  TEST_ASSERT_EQUAL(20, item2.data);
 }
 
 /*
@@ -178,27 +178,27 @@ void test_doubleLinkedListAddItemToHead_given_item2_and_list_containing_item1_ex
 */
 
 void test_doubleLinkedListAddItemToHead_given_item3_and_list_containing_item1_and_item2_expect_item3_added_to_head_of_list() {
-	//initialise items and list
-	ListItem item1 = {NULL, NULL, 10};
-	ListItem item2 = {NULL, NULL, 20};
+  //initialise items and list
+  ListItem item1 = {NULL, NULL, 10};
+  ListItem item2 = {NULL, NULL, 20};
   ListItem item3 = {NULL, NULL, 30};
   item1.prev = &item2;
   item2.next = &item1;
-	DoubleLinkedList list = {&item2, &item1, 2};
-	//add item3 to head
-	int count = doubleLinkedListAddItemToHead(&list, &item3);
-	//test the linked list
-	TEST_ASSERT_EQUAL_PTR(&item3, list.head);
-	TEST_ASSERT_EQUAL_PTR(&item1, list.tail);
+  DoubleLinkedList list = {&item2, &item1, 2};
+  //add item3 to head
+  int count = doubleLinkedListAddItemToHead(&list, &item3);
+  //test the linked list
+  TEST_ASSERT_EQUAL_PTR(&item3, list.head);
+  TEST_ASSERT_EQUAL_PTR(&item1, list.tail);
   TEST_ASSERT_EQUAL_PTR(&item2, item3.next);
   TEST_ASSERT_EQUAL_PTR(NULL, item3.prev);
-	TEST_ASSERT_EQUAL_PTR(&item1, item2.next);
+  TEST_ASSERT_EQUAL_PTR(&item1, item2.next);
   TEST_ASSERT_EQUAL_PTR(&item3, item2.prev);
   TEST_ASSERT_EQUAL_PTR(NULL, item1.next);
-	TEST_ASSERT_EQUAL_PTR(&item2, item1.prev);
-	TEST_ASSERT_EQUAL(3, count);
-	TEST_ASSERT_EQUAL(10, item1.data);
-	TEST_ASSERT_EQUAL(20, item2.data);
+  TEST_ASSERT_EQUAL_PTR(&item2, item1.prev);
+  TEST_ASSERT_EQUAL(3, count);
+  TEST_ASSERT_EQUAL(10, item1.data);
+  TEST_ASSERT_EQUAL(20, item2.data);
   TEST_ASSERT_EQUAL(30, item3.data);
 }
 
@@ -224,14 +224,14 @@ void test_doubleLinkedListAddItemToHead_given_item3_and_list_containing_item1_an
 */
 
 void test_doubleLinkedListAddItemToTail_given_NULL_item_and_empty_list_expect_list_is_still_empty_after_adding() {
-	//initialise items and list
-	DoubleLinkedList list = {NULL, NULL, 0};
-	//add NULL item to list
-	int count = doubleLinkedListAddItemToTail(&list, NULL);
-	//test the linked list
-	TEST_ASSERT_EQUAL_PTR(NULL, list.head);
-	TEST_ASSERT_EQUAL_PTR(NULL, list.tail);
-	TEST_ASSERT_EQUAL(0, count);
+  //initialise items and list
+  DoubleLinkedList list = {NULL, NULL, 0};
+  //add NULL item to list
+  int count = doubleLinkedListAddItemToTail(&list, NULL);
+  //test the linked list
+  TEST_ASSERT_EQUAL_PTR(NULL, list.head);
+  TEST_ASSERT_EQUAL_PTR(NULL, list.tail);
+  TEST_ASSERT_EQUAL(0, count);
 }
 
 /*
@@ -256,18 +256,18 @@ void test_doubleLinkedListAddItemToTail_given_NULL_item_and_empty_list_expect_li
 */
 
 void test_doubleLinkedListAddItemToTail_given_item1_and_empty_list_expect_item1_added_to_list() {
-	//initialise items and list
+  //initialise items and list
   ListItem item1 = {NULL, NULL, 10};
-	DoubleLinkedList list = {NULL, NULL, 0};
-	//add item1 to list
-	int count = doubleLinkedListAddItemToTail(&list, &item1);
-	//test the linked list
-	TEST_ASSERT_EQUAL_PTR(&item1, list.head);
-	TEST_ASSERT_EQUAL_PTR(&item1, list.tail);
+  DoubleLinkedList list = {NULL, NULL, 0};
+  //add item1 to list
+  int count = doubleLinkedListAddItemToTail(&list, &item1);
+  //test the linked list
+  TEST_ASSERT_EQUAL_PTR(&item1, list.head);
+  TEST_ASSERT_EQUAL_PTR(&item1, list.tail);
   TEST_ASSERT_EQUAL_PTR(NULL, item1.next);
-	TEST_ASSERT_EQUAL_PTR(NULL, item1.prev);
+  TEST_ASSERT_EQUAL_PTR(NULL, item1.prev);
   TEST_ASSERT_EQUAL(10, item1.data);
-	TEST_ASSERT_EQUAL(1, count);
+  TEST_ASSERT_EQUAL(1, count);
 }
 
 /*
@@ -294,18 +294,18 @@ void test_doubleLinkedListAddItemToTail_given_item1_and_empty_list_expect_item1_
 */
 
 void test_doubleLinkedListAddItemToTail_given_NULL_item_and_list_containing_an_item_expect_no_item_is_added_and_list_remains_the_same() {
-	//initialise items and list
+  //initialise items and list
   ListItem item1 = {NULL, NULL, 10};
-	DoubleLinkedList list = {&item1, &item1, 1};
-	//add NULL item to list
-	int count = doubleLinkedListAddItemToTail(&list, NULL);
-	//test the linked list
-	TEST_ASSERT_EQUAL_PTR(&item1, list.head);
-	TEST_ASSERT_EQUAL_PTR(&item1, list.tail);
+  DoubleLinkedList list = {&item1, &item1, 1};
+  //add NULL item to list
+  int count = doubleLinkedListAddItemToTail(&list, NULL);
+  //test the linked list
+  TEST_ASSERT_EQUAL_PTR(&item1, list.head);
+  TEST_ASSERT_EQUAL_PTR(&item1, list.tail);
   TEST_ASSERT_EQUAL_PTR(NULL, item1.next);
-	TEST_ASSERT_EQUAL_PTR(NULL, item1.prev);
+  TEST_ASSERT_EQUAL_PTR(NULL, item1.prev);
   TEST_ASSERT_EQUAL(10, item1.data);
-	TEST_ASSERT_EQUAL(1, count);
+  TEST_ASSERT_EQUAL(1, count);
 }
 
 /*
@@ -332,22 +332,22 @@ void test_doubleLinkedListAddItemToTail_given_NULL_item_and_list_containing_an_i
 */
 
 void test_doubleLinkedListAddItemToTail_given_item2_and_list_containing_item1_expect_item2_added_to_tail_of_list() {
-	//initialise items and list
-	ListItem item1 = {NULL, NULL, 10};
-	ListItem item2 = {NULL, NULL, 20};
-	DoubleLinkedList list = {&item1, &item1, 1};
-	//add item2 to tail
-	int count = doubleLinkedListAddItemToTail(&list, &item2);
-	//test the linked list
-	TEST_ASSERT_EQUAL_PTR(&item1, list.head);
-	TEST_ASSERT_EQUAL_PTR(&item2, list.tail);
+  //initialise items and list
+  ListItem item1 = {NULL, NULL, 10};
+  ListItem item2 = {NULL, NULL, 20};
+  DoubleLinkedList list = {&item1, &item1, 1};
+  //add item2 to tail
+  int count = doubleLinkedListAddItemToTail(&list, &item2);
+  //test the linked list
+  TEST_ASSERT_EQUAL_PTR(&item1, list.head);
+  TEST_ASSERT_EQUAL_PTR(&item2, list.tail);
   TEST_ASSERT_EQUAL_PTR(NULL, item1.prev);
-	TEST_ASSERT_EQUAL_PTR(&item2, item1.next);
+  TEST_ASSERT_EQUAL_PTR(&item2, item1.next);
   TEST_ASSERT_EQUAL_PTR(&item1, item2.prev);
   TEST_ASSERT_EQUAL_PTR(NULL, item2.next);
-	TEST_ASSERT_EQUAL(2, count);
-	TEST_ASSERT_EQUAL(10, item1.data);
-	TEST_ASSERT_EQUAL(20, item2.data);
+  TEST_ASSERT_EQUAL(2, count);
+  TEST_ASSERT_EQUAL(10, item1.data);
+  TEST_ASSERT_EQUAL(20, item2.data);
 }
 
 /*
@@ -372,27 +372,27 @@ void test_doubleLinkedListAddItemToTail_given_item2_and_list_containing_item1_ex
 */
 
 void test_doubleLinkedListAddItemToTail_given_item3_and_list_containing_item1_and_item2_expect_item3_added_to_tail_of_list() {
-	//initialise items and list
-	ListItem item1 = {NULL, NULL, 10};
-	ListItem item2 = {NULL, NULL, 20};
+  //initialise items and list
+  ListItem item1 = {NULL, NULL, 10};
+  ListItem item2 = {NULL, NULL, 20};
   ListItem item3 = {NULL, NULL, 30};
   item1.next = &item2;
   item2.prev = &item1;
-	DoubleLinkedList list = {&item1, &item2, 2};
-	//add item3 to tail
-	int count = doubleLinkedListAddItemToTail(&list, &item3);
-	//test the linked list
-	TEST_ASSERT_EQUAL_PTR(&item1, list.head);
-	TEST_ASSERT_EQUAL_PTR(&item3, list.tail);
+  DoubleLinkedList list = {&item1, &item2, 2};
+  //add item3 to tail
+  int count = doubleLinkedListAddItemToTail(&list, &item3);
+  //test the linked list
+  TEST_ASSERT_EQUAL_PTR(&item1, list.head);
+  TEST_ASSERT_EQUAL_PTR(&item3, list.tail);
   TEST_ASSERT_EQUAL_PTR(NULL, item3.next);
   TEST_ASSERT_EQUAL_PTR(&item2, item3.prev);
-	TEST_ASSERT_EQUAL_PTR(&item3, item2.next);
+  TEST_ASSERT_EQUAL_PTR(&item3, item2.next);
   TEST_ASSERT_EQUAL_PTR(&item1, item2.prev);
   TEST_ASSERT_EQUAL_PTR(&item2, item1.next);
-	TEST_ASSERT_EQUAL_PTR(NULL, item1.prev);
-	TEST_ASSERT_EQUAL(3, count);
-	TEST_ASSERT_EQUAL(10, item1.data);
-	TEST_ASSERT_EQUAL(20, item2.data);
+  TEST_ASSERT_EQUAL_PTR(NULL, item1.prev);
+  TEST_ASSERT_EQUAL(3, count);
+  TEST_ASSERT_EQUAL(10, item1.data);
+  TEST_ASSERT_EQUAL(20, item2.data);
   TEST_ASSERT_EQUAL(30, item3.data);
 }
 
@@ -462,13 +462,13 @@ void test_doubleLinkedListRemoveItemFromHead_given_list_containing_item1_expect_
 
   itemRemoved = doubleLinkedListRemoveItemFromHead(&list);        //remove item1 from head of list
   //test linked list
-	TEST_ASSERT_EQUAL_PTR(&item1, itemRemoved);                     //check that the item removed is item 1
-	TEST_ASSERT_EQUAL_PTR(NULL, list.head);
-	TEST_ASSERT_EQUAL_PTR(NULL, list.tail);
-	TEST_ASSERT_EQUAL(0, list.count);                               //check that the count is reduced by 1 after removing 1 item
-	TEST_ASSERT_EQUAL_PTR(NULL, itemRemoved->next);                 //check that the item1.next and item1.prev points to null
-	TEST_ASSERT_EQUAL_PTR(NULL, itemRemoved->prev);
-	TEST_ASSERT_EQUAL(10, itemRemoved->data);
+  TEST_ASSERT_EQUAL_PTR(&item1, itemRemoved);                     //check that the item removed is item 1
+  TEST_ASSERT_EQUAL_PTR(NULL, list.head);
+  TEST_ASSERT_EQUAL_PTR(NULL, list.tail);
+  TEST_ASSERT_EQUAL(0, list.count);                               //check that the count is reduced by 1 after removing 1 item
+  TEST_ASSERT_EQUAL_PTR(NULL, itemRemoved->next);                 //check that the item1.next and item1.prev points to null
+  TEST_ASSERT_EQUAL_PTR(NULL, itemRemoved->prev);
+  TEST_ASSERT_EQUAL(10, itemRemoved->data);
 }
 
 /*
@@ -507,15 +507,15 @@ void test_doubleLinkedListRemoveItemFromHead_given_list_containing_item1_and_ite
 
   itemRemoved = doubleLinkedListRemoveItemFromHead(&list);        //remove item2 from head of list
   //test linked list
-	TEST_ASSERT_EQUAL_PTR(&item2, itemRemoved);                     //check that the item removed is item 2
-	TEST_ASSERT_EQUAL_PTR(&item1, list.head);
-	TEST_ASSERT_EQUAL_PTR(&item1, list.tail);
-	TEST_ASSERT_EQUAL_PTR(NULL, item1.prev);
-	TEST_ASSERT_EQUAL_PTR(NULL, item1.next);
-	TEST_ASSERT_EQUAL(1, list.count);                               //check that the count is reduced by 1 after removing 1 item
-	TEST_ASSERT_EQUAL_PTR(NULL, itemRemoved->next);                 //check that the item2.next and item2.prev points to null
-	TEST_ASSERT_EQUAL_PTR(NULL, itemRemoved->prev);
-	TEST_ASSERT_EQUAL(20, itemRemoved->data);
+  TEST_ASSERT_EQUAL_PTR(&item2, itemRemoved);                     //check that the item removed is item 2
+  TEST_ASSERT_EQUAL_PTR(&item1, list.head);
+  TEST_ASSERT_EQUAL_PTR(&item1, list.tail);
+  TEST_ASSERT_EQUAL_PTR(NULL, item1.prev);
+  TEST_ASSERT_EQUAL_PTR(NULL, item1.next);
+  TEST_ASSERT_EQUAL(1, list.count);                               //check that the count is reduced by 1 after removing 1 item
+  TEST_ASSERT_EQUAL_PTR(NULL, itemRemoved->next);                 //check that the item2.next and item2.prev points to null
+  TEST_ASSERT_EQUAL_PTR(NULL, itemRemoved->prev);
+  TEST_ASSERT_EQUAL(20, itemRemoved->data);
 }
 
 /*
@@ -557,15 +557,15 @@ void test_doubleLinkedListRemoveItemFromHead_given_list_containing_item1_item2_a
 
   itemRemoved = doubleLinkedListRemoveItemFromHead(&list);        //remove item3 from head of list
   //test linked list
-	TEST_ASSERT_EQUAL_PTR(&item3, itemRemoved);                     //check that the item removed is item 3
-	TEST_ASSERT_EQUAL_PTR(&item2, list.head);
-	TEST_ASSERT_EQUAL_PTR(&item1, list.tail);
-	TEST_ASSERT_EQUAL_PTR(NULL, item2.prev);
-	TEST_ASSERT_EQUAL_PTR(NULL, item1.next);
-	TEST_ASSERT_EQUAL(2, list.count);                               //check that the count is reduced by 1 after removing 1 item
-	TEST_ASSERT_EQUAL_PTR(NULL, itemRemoved->next);                 //check that the item3.next and item3.prev points to null
-	TEST_ASSERT_EQUAL_PTR(NULL, itemRemoved->prev);
-	TEST_ASSERT_EQUAL(30, itemRemoved->data);
+  TEST_ASSERT_EQUAL_PTR(&item3, itemRemoved);                     //check that the item removed is item 3
+  TEST_ASSERT_EQUAL_PTR(&item2, list.head);
+  TEST_ASSERT_EQUAL_PTR(&item1, list.tail);
+  TEST_ASSERT_EQUAL_PTR(NULL, item2.prev);
+  TEST_ASSERT_EQUAL_PTR(NULL, item1.next);
+  TEST_ASSERT_EQUAL(2, list.count);                               //check that the count is reduced by 1 after removing 1 item
+  TEST_ASSERT_EQUAL_PTR(NULL, itemRemoved->next);                 //check that the item3.next and item3.prev points to null
+  TEST_ASSERT_EQUAL_PTR(NULL, itemRemoved->prev);
+  TEST_ASSERT_EQUAL(30, itemRemoved->data);
 }
 
 //--------tests for doubleLinkedListRemoveItemFromTail----------------//
@@ -597,10 +597,10 @@ void test_doubleLinkedListRemoveItemFromTail_given_empty_list_expect_function_re
 
   itemRemoved = doubleLinkedListRemoveItemFromTail(&list);
   //test linked list
-	TEST_ASSERT_EQUAL_PTR(NULL, itemRemoved);
-	TEST_ASSERT_EQUAL_PTR(NULL, list.head);
-	TEST_ASSERT_EQUAL_PTR(NULL, list.tail);
-	TEST_ASSERT_EQUAL(0, list.count);
+  TEST_ASSERT_EQUAL_PTR(NULL, itemRemoved);
+  TEST_ASSERT_EQUAL_PTR(NULL, list.head);
+  TEST_ASSERT_EQUAL_PTR(NULL, list.tail);
+  TEST_ASSERT_EQUAL(0, list.count);
 }
 
 /*
@@ -634,13 +634,13 @@ void test_doubleLinkedListRemoveItemFromTail_given_list_containing_item1_expect_
 
   itemRemoved = doubleLinkedListRemoveItemFromTail(&list);
   //test linked list
-	TEST_ASSERT_EQUAL_PTR(&item1, itemRemoved);
-	TEST_ASSERT_EQUAL_PTR(NULL, list.head);
-	TEST_ASSERT_EQUAL_PTR(NULL, list.tail);
-	TEST_ASSERT_EQUAL(0, list.count);
-	TEST_ASSERT_EQUAL_PTR(NULL, itemRemoved->next);
-	TEST_ASSERT_EQUAL_PTR(NULL, itemRemoved->prev);
-	TEST_ASSERT_EQUAL(10, itemRemoved->data);
+  TEST_ASSERT_EQUAL_PTR(&item1, itemRemoved);
+  TEST_ASSERT_EQUAL_PTR(NULL, list.head);
+  TEST_ASSERT_EQUAL_PTR(NULL, list.tail);
+  TEST_ASSERT_EQUAL(0, list.count);
+  TEST_ASSERT_EQUAL_PTR(NULL, itemRemoved->next);
+  TEST_ASSERT_EQUAL_PTR(NULL, itemRemoved->prev);
+  TEST_ASSERT_EQUAL(10, itemRemoved->data);
 }
 
 /*
@@ -678,15 +678,15 @@ void test_doubleLinkedListRemoveItemFromTail_given_list_containing_item1_and_ite
 
   itemRemoved = doubleLinkedListRemoveItemFromTail(&list);
   //test linked list
-	TEST_ASSERT_EQUAL_PTR(&item2, itemRemoved);
-	TEST_ASSERT_EQUAL_PTR(&item1, list.tail);
-	TEST_ASSERT_EQUAL_PTR(&item1, list.head);
-	TEST_ASSERT_EQUAL_PTR(NULL, item1.next);
-	TEST_ASSERT_EQUAL_PTR(NULL, item1.prev);
-	TEST_ASSERT_EQUAL(1, list.count);
-	TEST_ASSERT_EQUAL_PTR(NULL, itemRemoved->next);
-	TEST_ASSERT_EQUAL_PTR(NULL, itemRemoved->prev);
-	TEST_ASSERT_EQUAL(20, itemRemoved->data);
+  TEST_ASSERT_EQUAL_PTR(&item2, itemRemoved);
+  TEST_ASSERT_EQUAL_PTR(&item1, list.tail);
+  TEST_ASSERT_EQUAL_PTR(&item1, list.head);
+  TEST_ASSERT_EQUAL_PTR(NULL, item1.next);
+  TEST_ASSERT_EQUAL_PTR(NULL, item1.prev);
+  TEST_ASSERT_EQUAL(1, list.count);
+  TEST_ASSERT_EQUAL_PTR(NULL, itemRemoved->next);
+  TEST_ASSERT_EQUAL_PTR(NULL, itemRemoved->prev);
+  TEST_ASSERT_EQUAL(20, itemRemoved->data);
 }
 
 /*
@@ -727,13 +727,13 @@ void test_doubleLinkedListRemoveItemFromTail_given_list_containing_item1_item2_a
 
   itemRemoved = doubleLinkedListRemoveItemFromTail(&list);
   //test linked list
-	TEST_ASSERT_EQUAL_PTR(&item3, itemRemoved);
-	TEST_ASSERT_EQUAL_PTR(&item1, list.head);
-	TEST_ASSERT_EQUAL_PTR(&item2, list.tail);
-	TEST_ASSERT_EQUAL_PTR(NULL, item2.next);
-	TEST_ASSERT_EQUAL_PTR(NULL, item1.prev);
-	TEST_ASSERT_EQUAL(2, list.count);
-	TEST_ASSERT_EQUAL_PTR(NULL, itemRemoved->next);
-	TEST_ASSERT_EQUAL_PTR(NULL, itemRemoved->prev);
-	TEST_ASSERT_EQUAL(30, itemRemoved->data);
+  TEST_ASSERT_EQUAL_PTR(&item3, itemRemoved);
+  TEST_ASSERT_EQUAL_PTR(&item1, list.head);
+  TEST_ASSERT_EQUAL_PTR(&item2, list.tail);
+  TEST_ASSERT_EQUAL_PTR(NULL, item2.next);
+  TEST_ASSERT_EQUAL_PTR(NULL, item1.prev);
+  TEST_ASSERT_EQUAL(2, list.count);
+  TEST_ASSERT_EQUAL_PTR(NULL, itemRemoved->next);
+  TEST_ASSERT_EQUAL_PTR(NULL, itemRemoved->prev);
+  TEST_ASSERT_EQUAL(30, itemRemoved->data);
 }

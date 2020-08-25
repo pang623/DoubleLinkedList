@@ -54,10 +54,9 @@ int doubleLinkedListAddItemToTail(DoubleLinkedList *list, ListItem *item) {
 ListItem* doubleLinkedListRemoveItemFromHead(DoubleLinkedList *ListPtr) {
   ListItem* lastItem;
 
-  if(ListPtr->head == NULL) {                   //before removing item, check if there is even any item to be removed
-    ListPtr->count = 0;
+  if(ListPtr->head == NULL)                     //check is it empty list
     return NULL;                                //no item to be removed, so return lastItem as NULL
-  }else {
+  else {
     lastItem = ListPtr->head;                   //lastItem points to the item that is to be removed
     ListPtr->head = lastItem->next;             //item removed from head after this line
     if(ListPtr->head == NULL)                   //after removing the item, if no item left, tail points to NULL
@@ -78,10 +77,9 @@ ListItem* doubleLinkedListRemoveItemFromHead(DoubleLinkedList *ListPtr) {
 ListItem* doubleLinkedListRemoveItemFromTail(DoubleLinkedList *ListPtr) {
   ListItem* LastItem;
 
-  if(ListPtr->tail == NULL) {
-    ListPtr->count = 0;
+  if(ListPtr->head == NULL)
     return NULL;
-  }else {
+  else {
     LastItem = ListPtr->tail;
     ListPtr->tail = LastItem->prev;
     if(ListPtr->tail == NULL)
