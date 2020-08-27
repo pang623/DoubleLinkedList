@@ -1,5 +1,6 @@
 #include "DoubleLinkedList.h"
 #include <stdio.h>
+#include <malloc.h>
 
 
 //Add ListItem to the head of double linked list and return the new count of items in the list.
@@ -91,4 +92,41 @@ ListItem* doubleLinkedListRemoveItemFromTail(DoubleLinkedList *ListPtr) {
     ListPtr->count -= 1;
   }
   return LastItem;
+}
+
+ListItem* doubleLinkedListCreateListItem(void *data) {
+  ListItem *item = malloc(sizeof(ListItem));
+  item->next = NULL;
+  item->prev = NULL;
+  item->data = data;
+  return item;
+}
+
+void doubleLinkedListFreeListItem(ListItem* itemToFree) {
+  if(itemToFree == NULL)
+    return;
+  else
+    free(itemToFree);
+}
+
+DoubleLinkedList *doubleLinkedListCreateList() {
+  DoubleLinkedList *list = malloc(sizeof(DoubleLinkedList));
+  list->head = NULL;
+  list->tail = NULL;
+  list->count = 0;
+  return list;
+}
+
+void doubleLinkedListFreeList(DoubleLinkedList *ListPtr, FreeFunction freeFunc) {
+  ListItem *item;
+  if(ListPtr->head == NULL)
+    return;
+  else {
+    while(ListPtr->head) {
+      item = (ListPtr->head)->next;
+      freeFunc((ListPtr->head)->data);
+      doubleLinkedListFreeListItem(ListPtr->head);
+      ListPtr->head = item;
+    }
+  }
 }
