@@ -1,6 +1,6 @@
 #include "DoubleLinkedList.h"
+#include "MemAlloc.h"
 #include <stdio.h>
-#include <malloc.h>
 
 
 //Add ListItem to the head of double linked list and return the new count of items in the list.
@@ -95,7 +95,7 @@ ListItem* doubleLinkedListRemoveItemFromTail(DoubleLinkedList *ListPtr) {
 }
 
 ListItem* doubleLinkedListCreateListItem(void *data) {
-  ListItem *item = malloc(sizeof(ListItem));
+  ListItem *item = memAlloc(sizeof(ListItem));
   item->next = NULL;
   item->prev = NULL;
   item->data = data;
@@ -103,14 +103,12 @@ ListItem* doubleLinkedListCreateListItem(void *data) {
 }
 
 void doubleLinkedListFreeListItem(ListItem* itemToFree) {
-  if(itemToFree == NULL)
-    return;
-  else
-    free(itemToFree);
+  if(itemToFree)
+    memFree(itemToFree);
 }
 
 DoubleLinkedList *doubleLinkedListCreateList() {
-  DoubleLinkedList *list = malloc(sizeof(DoubleLinkedList));
+  DoubleLinkedList *list = memAlloc(sizeof(DoubleLinkedList));
   list->head = NULL;
   list->tail = NULL;
   list->count = 0;
@@ -119,14 +117,11 @@ DoubleLinkedList *doubleLinkedListCreateList() {
 
 void doubleLinkedListFreeList(DoubleLinkedList *ListPtr, FreeFunction freeFunc) {
   ListItem *item;
-  if(ListPtr->head == NULL)
-    return;
-  else {
-    while(ListPtr->head) {
-      item = (ListPtr->head)->next;
-      freeFunc((ListPtr->head)->data);
-      doubleLinkedListFreeListItem(ListPtr->head);
-      ListPtr->head = item;
-    }
+  while(ListPtr->head) {
+    item = (ListPtr->head)->next;
+    freeFunc((ListPtr->head)->data);
+    doubleLinkedListFreeListItem(ListPtr->head);
+    ListPtr->head = item;
   }
+  memFree(ListPtr);
 }

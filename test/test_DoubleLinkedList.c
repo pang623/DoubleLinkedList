@@ -1,7 +1,7 @@
 #include "unity.h"
 #include "DoubleLinkedList.h"
 #include "IntegerListItem.h"
-#include <stdlib.h>
+#include "MemAlloc.h"
 
 void setUp(void)
 {
@@ -739,58 +739,3 @@ void test_doubleLinkedListRemoveItemFromTail_given_list_containing_item1_item2_a
   TEST_ASSERT_EQUAL_PTR(NULL, itemRemoved->prev);
   TEST_ASSERT_EQUAL(30, itemRemoved->data);
 }
-
-void test_doubleLinkedListCreateListItem_given_data_expect_list_item_created() {
-  char *name = "HI";
-  ListItem *itemPtr;
-  
-  itemPtr = doubleLinkedListCreateListItem(name);
-  TEST_ASSERT_EQUAL_PTR(NULL, itemPtr->next);
-  TEST_ASSERT_EQUAL_PTR(NULL, itemPtr->prev);
-  TEST_ASSERT_EQUAL_STRING("HI", itemPtr->data);
-  free(itemPtr);
-}
-
-void test_doubleLinkedListCreateListItem_given_data_structure_expect_list_item_created() {
-  Data dataStruct = {"SKIP", 8, 7.3436};
-  ListItem *itemPtr;
-  Data *dataPtr;
-  
-  itemPtr = doubleLinkedListCreateListItem(&dataStruct);
-  dataPtr = (Data *)itemPtr->data;
-  TEST_ASSERT_EQUAL_PTR(NULL, itemPtr->next);
-  TEST_ASSERT_EQUAL_PTR(NULL, itemPtr->prev);
-  TEST_ASSERT_EQUAL_STRING("SKIP", dataPtr->string);
-  TEST_ASSERT_EQUAL(8, dataPtr->val1);
-  TEST_ASSERT_EQUAL_FLOAT(7.3436, dataPtr->val2);
-  free(itemPtr);
-}
-
-void test_doubleLinkedListCreateList_expect_empty_list_created() {
-  DoubleLinkedList *listPtr = doubleLinkedListCreateList();
-  
-  TEST_ASSERT_EQUAL_PTR(NULL, listPtr->head);
-  TEST_ASSERT_EQUAL_PTR(NULL, listPtr->tail);
-  TEST_ASSERT_EQUAL(0, listPtr->count);
-  free(listPtr);
-}
-
-void freeData(void *dataToFree) {
-  Data *data = dataToFree;
-  if(data)
-    free(data);
-}
-
-/*
-void test_doubleLinkedListFreeListItem_given_list_item_expect_NULL_item() {
-  int a = 30;
-  ListItem *item = malloc(sizeof(ListItem));
-  item->next = NULL;
-  item->prev = NULL;
-  item->data = &a;
-  
-  doubleLinkedListFreeListItem(item);
-  TEST_ASSERT_NOT_NULL(item);
-}
-*/
-

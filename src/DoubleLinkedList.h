@@ -2,6 +2,7 @@
 #define DOUBLELINKEDLIST_H
 
 #include "ListItem.h"
+#include <stdlib.h>
 
 typedef void (*FreeFunction)(void *);
 typedef struct DoubleLinkedList DoubleLinkedList;
