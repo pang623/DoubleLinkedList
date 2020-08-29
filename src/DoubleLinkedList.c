@@ -117,7 +117,7 @@ DoubleLinkedList *doubleLinkedListCreateList() {
 
 void doubleLinkedListFreeList(DoubleLinkedList *ListPtr, FreeFunction freeFunc) {
   ListItem *item;
-  while(ListPtr->head) {
+  while(ListPtr->head != NULL) {
     item = (ListPtr->head)->next;
     freeFunc((ListPtr->head)->data);
     doubleLinkedListFreeListItem(ListPtr->head);

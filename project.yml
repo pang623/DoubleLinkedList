@@ -33,7 +33,6 @@
   :test:
     - +:test/**
     - -:test/support
-    - -:src/Private
   :source:
     - src/**
   :support:
