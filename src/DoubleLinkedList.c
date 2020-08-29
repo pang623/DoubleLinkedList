@@ -117,11 +117,12 @@ DoubleLinkedList *doubleLinkedListCreateList() {
 
 void doubleLinkedListFreeList(DoubleLinkedList *ListPtr, FreeFunction freeFunc) {
   ListItem *item;
-  while(ListPtr->head != NULL) {
+  while(ListPtr->head) {
     item = (ListPtr->head)->next;
     freeFunc((ListPtr->head)->data);
     doubleLinkedListFreeListItem(ListPtr->head);
     ListPtr->head = item;
   }
-  memFree(ListPtr);
+  if(ListPtr)
+    memFree(ListPtr);
 }
